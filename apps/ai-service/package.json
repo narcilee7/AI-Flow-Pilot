@@ -1,0 +1,39 @@
+{
+  "name": "@flow-pilot/ai-service",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint src/"
+  },
+  "description": "FlowPilot 最好的招聘全链路服务AI平台",
+  "type": "module",
+  "keywords": [
+    "flow_pilot",
+    "flow_pilot_ai",
+    "flow_pilot_ai_platform",
+    "flow_pilot_ai_platform_for_recruitment"
+  ],
+  "license": "MIT",
+  "packageManager": "pnpm@10.11.1",
+  "dependencies": {
+    "@flow-pilot/types": "workspace:*",
+    "@flow-pilot/utils": "workspace:*",
+    "@huggingface/inference": "^2.6.4",
+    "langchain": "^0.1.17",
+    "koa": "^2.15.0",
+    "@koa/cors": "^5.0.0",
+    "@koa/router": "^12.0.1",
+    "@koa/bodyparser": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.15.0",
+    "@types/koa__cors": "^5.0.0",
+    "@types/koa__router": "^12.0.0",
+    "@types/node": "^20.11.19",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+}

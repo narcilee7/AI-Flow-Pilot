@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "@flow-pilot/ui": ["packages/ui/src"],
+      "@flow-pilot/config": ["packages/config/src"],
+      "@flow-pilot/types": ["packages/types/src"],
+      "@flow-pilot/utils": ["packages/utils/src"]
+    }
+  },
+  "exclude": ["node_modules"]
+} 
