@@ -52,7 +52,7 @@ FlowPilot：做你的求职领航员。
   - core-vectors: 向量库统一封装 + Retriever	
   - core-agents: Agent能力封装调用
   - lib: 通用工具库、埋点、日志功能、甚至抽象组件库能力、底层ai能力等
-  - prompts: Prompts模版管理(比如模版回答、模版提问、模版简历)，插值工具
+  - core-prompts: prompts模版管理(比如模版回答、模版提问、模版简历)，插值工具
   - ui: 外部ui库或者封装ui业务组件库
 
 

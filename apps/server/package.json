@@ -25,7 +25,7 @@
     "@flow-pilot/core-db": "workspace:*",
     "@flow-pilot/core-vectors": "workspace:*",
     "@flow-pilot/lib": "workspace:*",
-    "@flow-pilot/prompts": "workspace:*",
+    "@flow-pilot/core-prompts": "workspace:*",
     "@koa/cors": "^5.0.0",
     "@koa/router": "^12.0.1",
     "@koa/bodyparser": "^6.0.0",

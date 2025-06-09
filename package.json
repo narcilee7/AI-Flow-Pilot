@@ -11,7 +11,13 @@
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky install"
+    "build:core-ai": "turbo run build --filter=@flow-pilot/core-ai",
+    "build:core-db": "turbo run build --filter=@flow-pilot/core-db",
+    "build:core-vectors": "turbo run build --filter=@flow-pilot/core-vectors",
+    "build:core-agents": "turbo run build --filter=@flow-pilot/core-agents",
+    "build:core-prompts": "turbo run build --filter=@flow-pilot/core-prompts",
+    "build:core-ui": "turbo run build --filter=@flow-pilot/core-ui",
+    "build:core-lib": "turbo run build --filter=@flow-pilot/core-lib"
   },
   "keywords": [
     "flow_pilot",

@@ -22,7 +22,7 @@
         "@flow-pilot/core-db": ["packages/core-db/src"],
         "@flow-pilot/core-vectors": ["packages/core-vectors/src"],
         "@flow-pilot/lib": ["packages/lib/src"],
-        "@flow-pilot/prompts": ["packages/prompts/src"],
+        "@flow-pilot/core-prompts": ["packages/core-prompts/src"],
         "@flow-pilot/ui": ["packages/ui/src"]
     }
   },

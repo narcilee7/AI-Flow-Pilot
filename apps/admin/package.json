@@ -16,7 +16,7 @@
     "@flow-pilot/core-db": "workspace:*",
     "@flow-pilot/core-vectors": "workspace:*",
     "@flow-pilot/lib": "workspace:*",
-    "@flow-pilot/prompts": "workspace:*",
+    "@flow-pilot/core-prompts": "workspace:*",
     "vue": "^3.5.13"
   },
   "devDependencies": {

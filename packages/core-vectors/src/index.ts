@@ -1,41 +1,18 @@
-// 用戶相關類型
-export interface User {
-  id: string;
-  email: string;
-  name: string;
-  createdAt: Date;
-  updatedAt: Date;
+import { ChromaClient, Collection } from 'chromadb';
+
+const client = new ChromaClient();
+
+export async function initVectorCollection(name: string): Promise<Collection> {
+  return await client.getOrCreateCollection({ name });
 }
 
-// 簡歷相關類型
-export interface Resume {
-  id: string;
-  userId: string;
-  title: string;
-  content: string;
-  createdAt: Date;
-  updatedAt: Date;
+export async function addToCollection(collection: Collection, docs: { id: string; text: string }[]) {
+  await collection.add({
+    ids: docs.map(d => d.id),
+    documents: docs.map(d => d.text),
+  });
 }
 
-// 面試相關類型
-export interface Interview {
-  id: string;
-  userId: string;
-  type: 'technical' | 'behavioral' | 'system-design';
-  status: 'scheduled' | 'completed' | 'cancelled';
-  feedback?: string;
-  score?: number;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-// 求職目標相關類型
-export interface JobApplication {
-  id: string;
-  userId: string;
-  company: string;
-  position: string;
-  status: 'applied' | 'interviewing' | 'offered' | 'rejected';
-  appliedAt: Date;
-  updatedAt: Date;
+export async function searchCollection(collection: Collection, query: string) {
+  return await collection.query({ queryTexts: [query], nResults: 3 });
 }

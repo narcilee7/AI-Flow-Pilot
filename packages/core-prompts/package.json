@@ -1,5 +1,5 @@
 {
-  "name": "@flow-pilot/prompts",
+  "name": "@flow-pilot/core-prompts",
   "version": "0.0.1",
   "private": true,
   "main": "./dist/index.js",

@@ -1,41 +1,22 @@
-// 用戶相關類型
-export interface User {
-  id: string;
-  email: string;
-  name: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
+import axios from 'axios'
 
-// 簡歷相關類型
-export interface Resume {
-  id: string;
-  userId: string;
-  title: string;
-  content: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
+export async function callMoonshot({
+  prompt,
+  temperature = 0.7,
+  model = 'moonshot-v1-8k',
+}) {
+  const apiKey = process.env.MOONSHOT_API_KEY
+  const url = 'https://api.moonshot.cn/v1/chat/completions'
 
-// 面試相關類型
-export interface Interview {
-  id: string;
-  userId: string;
-  type: 'technical' | 'behavioral' | 'system-design';
-  status: 'scheduled' | 'completed' | 'cancelled';
-  feedback?: string;
-  score?: number;
-  createdAt: Date;
-  updatedAt: Date;
-}
+  const response = await axios.post(url, {
+    model,
+    messages: [{ role: 'user', content: prompt }],
+    temperature,
+  }, {
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+    }
+  })
 
-// 求職目標相關類型
-export interface JobApplication {
-  id: string;
-  userId: string;
-  company: string;
-  position: string;
-  status: 'applied' | 'interviewing' | 'offered' | 'rejected';
-  appliedAt: Date;
-  updatedAt: Date;
+  return response.data.choices[0].message.content
 }

@@ -17,7 +17,7 @@
     "@flow-pilot/core-db": "workspace:*",
     "@flow-pilot/core-vectors": "workspace:*",
     "@flow-pilot/lib": "workspace:*",
-    "@flow-pilot/prompts": "workspace:*",
+    "@flow-pilot/core-prompts": "workspace:*",
     "@tailwindcss/postcss": "^4.1.8",
     "geist": "^1.4.2",
     "next": "14.1.0",
