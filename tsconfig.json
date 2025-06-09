@@ -15,11 +15,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "baseUrl": ".",
-    "paths": {
-      "@flow-pilot/ui": ["packages/ui/src"],
-      "@flow-pilot/config": ["packages/config/src"],
-      "@flow-pilot/types": ["packages/types/src"],
-      "@flow-pilot/utils": ["packages/utils/src"]
+      "paths": {
+        "@flow-pilot/types": ["packages/types/src"],
+        "@flow-pilot/core-agents": ["packages/core-agents/src"],
+        "@flow-pilot/core-ai": ["packages/core-ai/src"],
+        "@flow-pilot/core-db": ["packages/core-db/src"],
+        "@flow-pilot/core-vectors": ["packages/core-vectors/src"],
+        "@flow-pilot/lib": ["packages/lib/src"],
+        "@flow-pilot/prompts": ["packages/prompts/src"],
+        "@flow-pilot/ui": ["packages/ui/src"]
     }
   },
   "exclude": ["node_modules"]

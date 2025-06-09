@@ -3,37 +3,10 @@
 --version: node v20.19.2 (npm v10.8.2)
 
 ## 产品简介
-做一款AI赋能的求职全链路平台AI Resume Flow Platform，称之为FlowPilot。
+Resume Flow AI Platform AI为核心的Agent求职服务平台
 
 ### Slogan
 FlowPilot：做你的求职领航员。
-
-#### 产品线
-1. 最好的简历服务：
-  - 最好的、最优质的简历编辑器：支持表单、markdown、富文本编辑；
-  - 支持完整的导入导出，包括pdf、doc、docx等等；
-  - 支持套用优质模版，包括开发、产品、算法、销售等模版；
-  - 支持AI生成、润色简历；
-2. 八股文、面试题知识库 + 刷题系统
-  - 题库系统（平台自有八股文库），按方向细分（前端/后端/算法/系统设计等）
-  - 收藏、标记、错题集、笔记、高亮等笔记系统
-  - AI答题建议
-  - 每日刷题推荐（可调节难度、方向）
-  - 笔试模式 & 刷题模式切换
-  - 用户记录 & 数据统计（正确率、时间）
-  - 刷题支持cloud ide，类似leecode
-3. 模拟面试系统
-  - AI面试官（数字人->按简历、用户画像(刷题记录等)生成问题 → 用户作答）
-  - 开启摄像头模拟（表情、语速、语气分析）
-  - 多轮交互、深入提问（Follow-up）
-  - 模拟评分 & 面试建议
-  - 历史面试记录、答题记录、评估等 & 面试成长曲线
-  - 面试复盘
-4. 求职目标管理：
-  - 求职目标看板（目标公司、职位、状态管理）
-  - 时间线追踪（何时投、何时面、何时反馈）
-  - “冲刺计划”生成器（如倒计时 + 每周任务）
-  - 打卡系统 + 学习习惯追踪（辅助坚持）
 
 #### 产品功能全链路打通
 1. 简历editor：核心在于将简历数据使用 JSON schema化、结构化。目标是：
@@ -64,5 +37,22 @@ FlowPilot：做你的求职领航员。
 2. 后端：koa prisma
 3. typescript
 4. AI: Langchain + HuggingFace Transformers
-5. 数据库：Postgresql + Chroma向量数据库
+5. 数据库：PostgreSql + Chroma向量数据库
+
+### monorepo架构文件下介绍
+
+/app:
+  - web: 用户端
+  - admin：管理端
+  - server：服务层
+
+/packages:
+  - core-ai: 封装AI能力，调用Langchain，HuggingFace能力
+  - core-db: Prisma Model能力封装
+  - core-vectors: 向量库统一封装 + Retriever	
+  - core-agents: Agent能力封装调用
+  - lib: 通用工具库、埋点、日志功能、甚至抽象组件库能力、底层ai能力等
+  - prompts: Prompts模版管理(比如模版回答、模版提问、模版简历)，插值工具
+  - ui: 外部ui库或者封装ui业务组件库
+
 

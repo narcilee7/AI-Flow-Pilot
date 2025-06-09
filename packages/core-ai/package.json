@@ -1,5 +1,5 @@
 {
-  "name": "@flow-pilot/utils",
+  "name": "@flow-pilot/core-ai",
   "version": "0.0.1",
   "private": true,
   "main": "./dist/index.js",
@@ -18,4 +18,4 @@
     "tsup": "^8.0.2",
     "typescript": "^5.3.3"
   }
-} 
+}
