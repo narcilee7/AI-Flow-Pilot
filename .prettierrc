@@ -4,7 +4,8 @@
   "singleQuote": true,
   "printWidth": 100,
   "tabWidth": 2,
-  "useTabs": false,
+  "useTabs": true,
   "endOfLine": "auto",
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "plugins": ["prettier-plugin-organize-imports"]
 } 

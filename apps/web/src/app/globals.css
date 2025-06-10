@@ -1,29 +1,31 @@
 @import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@layer base {
-  :root {
-    --font-sans: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  }
-  
-  body {
-    @apply antialiased;
-    font-family: var(--font-sans);
-  }
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+
+  --radius: 0.5rem;
 }
 
-@layer components {
-  .btn {
-    @apply px-4 py-2 rounded-lg transition-colors;
-  }
-  
-  .btn-primary {
-    @apply bg-primary-500 text-white hover:bg-primary-600;
-  }
-  
-  .btn-secondary {
-    @apply bg-white text-primary-600 border border-primary-200 hover:bg-primary-50;
-  }
-} 
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 100%;
+
+  --card: 240 10% 10%;
+  --card-foreground: 0 0% 100%;
+
+  --primary: 0 0% 100%;
+  --primary-foreground: 240 5.9% 10%;
+
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+}

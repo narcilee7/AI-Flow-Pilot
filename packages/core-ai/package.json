@@ -10,16 +10,21 @@
   ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "dev": "tsx src/index.ts",
     "lint": "eslint src/",
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "openai": "^4.85.1",
-    "axios": "^1.7.9"
+    "axios": "^1.7.9",
+    "dotenv": "16.5.0",
+    "langchain": "^0.3.27",
+    "openai": "^4.85.1"
   },
   "devDependencies": {
     "tsup": "^8.0.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/parser": "^7.0.1",
+    "@typescript-eslint/eslint-plugin": "^7.0.1"
   }
 }
