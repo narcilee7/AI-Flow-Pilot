@@ -7,8 +7,8 @@ const geistSans = GeistSans;
 const geistMono = GeistMono;
 
 export const metadata: Metadata = {
-  title: "FlowPilot",
-  description: "最好的招聘全链路服务AI平台 FlowPilot",
+  title: "JobPilot",
+  description: "最好的招聘全链路服务AI平台 JobPilot",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

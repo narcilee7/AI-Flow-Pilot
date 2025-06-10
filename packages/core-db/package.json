@@ -1,5 +1,5 @@
 {
-  "name": "@flow-pilot/core-db",
+  "name": "@jobPilot/core-db",
   "version": "0.0.1",
   "private": true,
   "main": "./dist/index.js",

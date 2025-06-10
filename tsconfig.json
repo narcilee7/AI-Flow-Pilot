@@ -16,14 +16,14 @@
     "isolatedModules": true,
     "baseUrl": ".",
       "paths": {
-        "@flow-pilot/types": ["packages/types/src"],
-        "@flow-pilot/core-agents": ["packages/core-agents/src"],
-        "@flow-pilot/core-ai": ["packages/core-ai/src"],
-        "@flow-pilot/core-db": ["packages/core-db/src"],
-        "@flow-pilot/core-vectors": ["packages/core-vectors/src"],
-        "@flow-pilot/lib": ["packages/lib/src"],
-        "@flow-pilot/core-prompts": ["packages/core-prompts/src"],
-        "@flow-pilot/ui": ["packages/ui/src"]
+        "@jobPilot/types": ["packages/types/src"],
+        "@jobPilot/core-agents": ["packages/core-agents/src"],
+        "@jobPilot/core-ai": ["packages/core-ai/src"],
+        "@jobPilot/core-db": ["packages/core-db/src"],
+        "@jobPilot/core-vectors": ["packages/core-vectors/src"],
+        "@jobPilot/lib": ["packages/lib/src"],
+        "@jobPilot/core-prompts": ["packages/core-prompts/src"],
+        "@jobPilot/ui": ["packages/ui/src"]
     }
   },
   "exclude": ["node_modules"]

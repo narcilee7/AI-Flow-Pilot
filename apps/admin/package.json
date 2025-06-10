@@ -11,14 +11,14 @@
     "lint:fix": "eslint src/ --fix"
   },
   "dependencies": {
-    "@flow-pilot/ui": "workspace:*",
-    "@flow-pilot/types": "workspace:*",
-    "@flow-pilot/core-agents": "workspace:*",
-    "@flow-pilot/core-ai": "workspace:*",
-    "@flow-pilot/core-db": "workspace:*",
-    "@flow-pilot/core-vectors": "workspace:*",
-    "@flow-pilot/lib": "workspace:*",
-    "@flow-pilot/core-prompts": "workspace:*",
+    "@jobPilot/ui": "workspace:*",
+    "@jobPilot/types": "workspace:*",
+    "@jobPilot/core-agents": "workspace:*",
+    "@jobPilot/core-ai": "workspace:*",
+    "@jobPilot/core-db": "workspace:*",
+    "@jobPilot/core-vectors": "workspace:*",
+    "@jobPilot/lib": "workspace:*",
+    "@jobPilot/core-prompts": "workspace:*",
     "vue": "^3.5.13"
   },
   "devDependencies": {

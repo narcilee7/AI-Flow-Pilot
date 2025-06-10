@@ -1,5 +1,5 @@
-import { chatWithMoonshot } from '@flow-pilot/core-ai';
-import { resumePolishPrompt } from '@flow-pilot/core-prompts';
+import { chatWithMoonshot } from '@jobPilot/core-ai';
+import { resumePolishPrompt } from '@jobPilot/core-prompts';
 
 export async function optimizeResume(resumeText: string) {
   const prompt = resumePolishPrompt(resumeText);

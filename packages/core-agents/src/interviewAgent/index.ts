@@ -1,4 +1,4 @@
-import { chatWithMoonshot } from '@flow-pilot/core-ai';
+import { chatWithMoonshot } from '@jobPilot/core-ai';
 
 export async function simulateInterview(question: string, answer: string) {
   const messages = [

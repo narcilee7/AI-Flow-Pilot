@@ -1,5 +1,5 @@
 {
-  "name": "@flow-pilot/core-agents",
+  "name": "@jobPilot/core-agents",
   "version": "0.0.1",
   "private": true,
   "main": "./dist/index.js",
@@ -16,8 +16,8 @@
     "lint:fix": "eslint src/ --fix"
   },
   "dependencies": {
-    "@flow-pilot/core-ai": "workspace:*",
-    "@flow-pilot/core-prompts": "workspace:*"
+    "@jobPilot/core-ai": "workspace:*",
+    "@jobPilot/core-prompts": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.0.2",

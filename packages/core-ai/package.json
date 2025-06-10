@@ -1,5 +1,5 @@
 {
-  "name": "@flow-pilot/core-ai",
+  "name": "@jobPilot/core-ai",
   "version": "0.0.1",
   "private": true,
   "main": "./dist/index.js",

@@ -1,5 +1,5 @@
 {
-  "name": "@flow-pilot/ui",
+  "name": "@jobPilot/ui",
   "version": "0.0.1",
   "private": true,
   "main": "./dist/index.js",

@@ -1,5 +1,5 @@
 {
-  "name": "@flow-pilot/server",
+  "name": "@jobPilot/server",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -20,13 +20,13 @@
   "license": "MIT",
   "packageManager": "pnpm@10.11.1",
   "dependencies": {
-    "@flow-pilot/types": "workspace:*",
-    "@flow-pilot/core-agents": "workspace:*",
-    "@flow-pilot/core-ai": "workspace:*",
-    "@flow-pilot/core-db": "workspace:*",
-    "@flow-pilot/core-vectors": "workspace:*",
-    "@flow-pilot/lib": "workspace:*",
-    "@flow-pilot/core-prompts": "workspace:*",
+    "@jobPilot/types": "workspace:*",
+    "@jobPilot/core-agents": "workspace:*",
+    "@jobPilot/core-ai": "workspace:*",
+    "@jobPilot/core-db": "workspace:*",
+    "@jobPilot/core-vectors": "workspace:*",
+    "@jobPilot/lib": "workspace:*",
+    "@jobPilot/core-prompts": "workspace:*",
     "@koa/cors": "^5.0.0",
     "@koa/router": "^12.0.1",
     "@koa/bodyparser": "^6.0.0",

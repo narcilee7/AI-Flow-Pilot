@@ -1,5 +1,5 @@
 {
-  "name": "@flow-pilot/lib",
+  "name": "@jobPilot/lib",
   "version": "0.0.1",
   "private": true,
   "main": "./dist/index.js",
