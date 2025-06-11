@@ -3,44 +3,47 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "dev": "tsx watch src/index.ts",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "lint": "eslint src/",
     "clean": "rm -rf dist",
     "lint:fix": "eslint src/ --fix"
   },
-  "description": "FlowPilot 最好的招聘全链路服务AI平台",
+  "description": "JobPilot 最好的招聘全链路服务AI平台",
   "type": "module",
   "keywords": [
-    "flow_pilot",
-    "flow_pilot_ai",
-    "flow_pilot_ai_platform",
-    "flow_pilot_ai_platform_for_recruitment"
+    "job_pilot",
+    "job_pilot_ai",
+    "job_pilot_ai_platform",
+    "job_pilot_ai_platform_for_recruitment"
   ],
   "license": "MIT",
   "packageManager": "pnpm@10.11.1",
   "dependencies": {
-    "@jobPilot/types": "workspace:*",
     "@jobPilot/core-agents": "workspace:*",
     "@jobPilot/core-ai": "workspace:*",
     "@jobPilot/core-db": "workspace:*",
+    "@jobPilot/core-prompts": "workspace:*",
     "@jobPilot/core-vectors": "workspace:*",
     "@jobPilot/lib": "workspace:*",
-    "@jobPilot/core-prompts": "workspace:*",
+    "@jobPilot/types": "workspace:*",
+    "@koa/bodyparser": "^6.0.0",
     "@koa/cors": "^5.0.0",
     "@koa/router": "^12.0.1",
-    "@koa/bodyparser": "^6.0.0",
-    "koa": "^2.15.0"
+    "@prisma/client": "6.9.0",
+    "koa": "^2.15.0",
+    "winston": "^3.17.0"
   },
   "devDependencies": {
     "@types/koa": "^2.15.0",
     "@types/koa__cors": "^5.0.0",
     "@types/koa__router": "^12.0.0",
     "@types/node": "^20.11.19",
-    "tsx": "^4.7.1",
-    "typescript": "^5.3.3",
-    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.1",
     "@typescript-eslint/parser": "^7.0.1",
-    "@typescript-eslint/eslint-plugin": "^7.0.1"
+    "eslint": "^8.56.0",
+    "prisma": "6.9.0",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
   }
 }

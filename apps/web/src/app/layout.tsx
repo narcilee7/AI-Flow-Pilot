@@ -8,7 +8,7 @@ const geistMono = GeistMono;
 
 export const metadata: Metadata = {
   title: "JobPilot",
-  description: "最好的招聘全链路服务AI平台 JobPilot",
+  description: "JobPilot",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
