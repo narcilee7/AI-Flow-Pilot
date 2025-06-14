@@ -214,6 +214,9 @@ importers:
       '@platejs/basic-nodes':
         specifier: ^49.0.0
         version: 49.0.0(platejs@49.0.2(@types/react@18.3.23)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(slate-dom@0.116.0(slate@0.115.1))(slate@0.115.1)(use-sync-external-store@1.5.0(react@18.3.1)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@platejs/basic-styles':
+        specifier: ^49.0.0
+        version: 49.0.0(platejs@49.0.2(@types/react@18.3.23)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(slate-dom@0.116.0(slate@0.115.1))(slate@0.115.1)(use-sync-external-store@1.5.0(react@18.3.1)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@reduxjs/toolkit':
         specifier: ^2.8.2
         version: 2.8.2(react-redux@9.2.0(@types/react@18.3.23)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
@@ -871,6 +874,13 @@ packages:
 
   '@platejs/basic-nodes@49.0.0':
     resolution: {integrity: sha512-l7MbW1Oy2uyRRYOiWVGxTNs8nIvBM/EWjZZFEmtOZcpzXrSY6c3cZd0KAA6u0Z+NLLbLABLJNxuYFBZ5ARvBsg==}
+    peerDependencies:
+      platejs: '>=49.0.0'
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+
+  '@platejs/basic-styles@49.0.0':
+    resolution: {integrity: sha512-MjbQj+LjflUBhd1DPZqnlodHZiX7kJo0LpJ7wHRUI515nNJ7zMQJHocCHo1EYfAU2VtV1j5CpZ7wxHUw3nuHmA==}
     peerDependencies:
       platejs: '>=49.0.0'
       react: '>=18.0.0'
@@ -4700,6 +4710,12 @@ snapshots:
   '@pkgr/core@0.2.7': {}
 
   '@platejs/basic-nodes@49.0.0(platejs@49.0.2(@types/react@18.3.23)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(slate-dom@0.116.0(slate@0.115.1))(slate@0.115.1)(use-sync-external-store@1.5.0(react@18.3.1)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      platejs: 49.0.2(@types/react@18.3.23)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(slate-dom@0.116.0(slate@0.115.1))(slate@0.115.1)(use-sync-external-store@1.5.0(react@18.3.1))
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@platejs/basic-styles@49.0.0(platejs@49.0.2(@types/react@18.3.23)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(slate-dom@0.116.0(slate@0.115.1))(slate@0.115.1)(use-sync-external-store@1.5.0(react@18.3.1)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       platejs: 49.0.2(@types/react@18.3.23)(immer@10.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)(slate-dom@0.116.0(slate@0.115.1))(slate@0.115.1)(use-sync-external-store@1.5.0(react@18.3.1))
       react: 18.3.1

@@ -1,12 +1,10 @@
 'use client'
 
 import type { Value } from 'platejs'
-import {
-  BoldPlugin,
-  ItalicPlugin,
-  UnderlinePlugin,
-} from '@platejs/basic-nodes/react'
-import { Plate, PlateContent, usePlateEditor } from 'platejs/react'
+import { Plate, usePlateEditor } from 'platejs/react'
+import EditorContainer from './EditorContaner';
+import Editor from './Editor';
+import BasicMarksKit from './plugins/BasicMarksKit';
 
 interface RichTextEditorProps {
   value: Value;
@@ -22,9 +20,7 @@ const RichTextEditor = (props: RichTextEditorProps) => {
   const editor = usePlateEditor(
     {
       plugins: [
-        BoldPlugin,
-        ItalicPlugin,
-        UnderlinePlugin,
+        ...BasicMarksKit
       ],
       value,
     }
@@ -36,10 +32,11 @@ const RichTextEditor = (props: RichTextEditorProps) => {
 
   return (
     <Plate editor={editor} onChange={handleContentChange}>
-    <PlateContent 
-      className='w-full h-full'
-      placeholder="Enter some text..."
-    />
+      <EditorContainer className='w-5/6 h-full p-10'>
+        <Editor variant="default"
+          placeholder="Enter some text..."
+        />
+      </EditorContainer>
   </Plate>
   )
 }
