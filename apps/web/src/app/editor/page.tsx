@@ -1,57 +1,40 @@
-"use client";
+'use client'
+import { useMemo, useState } from "react"
+import { createEditor, Descendant } from 'slate'
+import { Editable, Slate, withReact } from 'slate-react'
 
-import { useEditor } from '@/hooks/useEditor';
-import { EditorNav } from '@/components/Editor/EditorNav';
-import { FormEditor } from '@/components/Editor/FormEditor';
-import { MarkdownEditor } from '@/components/Editor/MarkdownEditor';
-import { RichTextEditor } from '@/components/Editor/RichTextEditor';
-import { CanvasEditor } from '@/components/Editor/CanvasEditor';
-import { AnimatePresence, motion } from 'framer-motion';
 
-export default function Home() {
-  const {
-    activeEditor,
-    switchEditor,
-    formData,
-    setFormData,
-    markdownData,
-    setMarkdownData,
-    richTextData,
-    setRichTextData,
-    canvasData,
-    setCanvasData
-  } = useEditor();
+const EditorPage = () => {
+  const [editor] = useState(() => withReact(createEditor()))
 
-  const renderEditor = () => {
-    switch (activeEditor) {
-      case 'form':
-        return <FormEditor data={formData} setData={setFormData} />;
-      case 'markdown':
-        return <MarkdownEditor data={markdownData} setData={setMarkdownData} />;
-      case 'richtext':
-        return <RichTextEditor data={richTextData} setData={setRichTextData} />;
-      case 'canvas':
-        return <CanvasEditor data={canvasData} setData={setCanvasData} />;
-      default:
-        return null;
+  const initialValue = useMemo(() => {
+    const content = localStorage.getItem('content')
+    if (content) {
+      return JSON.parse(content)
     }
-  };
+    return [
+      {
+        type: 'paragraph',
+        children: [{ text: 'This is editable text. You can focus it and change it.' }]
+      }
+    ]
+  }, [])
+
+  const handleChange = (value: Descendant[]) => {
+    const isAstChange = editor.operations.some(
+      op => 'set_selection' !== op.type
+    )
+    if (isAstChange) {
+      const content = JSON.stringify(value)
+      localStorage.setItem('content', content)
+    }
+  }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <EditorNav activeEditor={activeEditor} onEditorTypeChange={switchEditor} />
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeEditor}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.2 }}
-          className="pb-8"
-        >
-          {renderEditor()}
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  );
+    <Slate editor={editor} initialValue={initialValue} onChange={handleChange}>
+      <Editable />
+    </Slate>
+  )
 }
+
+export default EditorPage
