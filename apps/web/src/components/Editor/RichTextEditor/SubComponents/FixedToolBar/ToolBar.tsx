@@ -190,6 +190,7 @@ export function ToolbarSplitButton({
   );
 }
 
+// 工具栏分割按钮主按钮属性
 type ToolbarSplitButtonPrimaryProps = Omit<
   React.ComponentPropsWithoutRef<typeof ToolbarToggleItem>,
   'value'
@@ -261,7 +262,7 @@ export function ToolbarToggleItem({
     />
   );
 }
-
+// 工具栏组
 export function ToolbarGroup({
   children,
   className,
@@ -283,6 +284,7 @@ export function ToolbarGroup({
   );
 }
 
+// 工具提示属性
 type TooltipProps<T extends React.ElementType> = {
   tooltip?: React.ReactNode;
   tooltipContentProps?: Omit<
@@ -296,6 +298,7 @@ type TooltipProps<T extends React.ElementType> = {
   tooltipTriggerProps?: React.ComponentPropsWithoutRef<typeof TooltipTrigger>;
 } & React.ComponentProps<T>;
 
+// 工具提示扩展组件
 function withTooltip<T extends React.ElementType>(Component: T) {
   return function ExtendComponent({
     tooltip,
@@ -328,10 +331,10 @@ function withTooltip<T extends React.ElementType>(Component: T) {
   };
 }
 
+// 工具提示内容
 function TooltipContent({
   children,
   className,
-  // CHANGE
   sideOffset = 4,
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Content>) {
@@ -347,13 +350,12 @@ function TooltipContent({
         {...props}
       >
         {children}
-        {/* CHANGE */}
-        {/* <TooltipPrimitive.Arrow className="z-50 size-2.5 translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px] bg-primary fill-primary" /> */}
       </TooltipPrimitive.Content>
     </TooltipPrimitive.Portal>
   );
 }
 
+// 工具栏菜单组
 export function ToolbarMenuGroup({
   children,
   className,
