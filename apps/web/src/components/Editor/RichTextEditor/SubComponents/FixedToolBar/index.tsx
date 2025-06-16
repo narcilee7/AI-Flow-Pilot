@@ -1,11 +1,11 @@
 'use client'
 
-import { ToolBar } from "./ToolBar"
+import { Toolbar } from "./ToolBar"
 import { cn } from "@/utils/styleHelper"
 
-export function FixedToolBar(props: React.ComponentProps<typeof ToolBar>) {
+export function FixedToolBar(props: React.ComponentProps<typeof Toolbar>) {
   return (
-    <ToolBar 
+    <Toolbar 
       {...props} 
       className={cn(
         'sticky top-0 left-0 z-100',
@@ -17,4 +17,3 @@ export function FixedToolBar(props: React.ComponentProps<typeof ToolBar>) {
     />
   )
 }
-
