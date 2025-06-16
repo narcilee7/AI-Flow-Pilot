@@ -23,7 +23,7 @@ export default function EditorPage() {
 
   return (
     <div className="flex flex-col items-center h-screen">
-      <h1 className='text-3xl font-bold text-amber-100 mt-10 mb-10'>Resume Editor</h1>
+      <h1 className='text-3xl font-bold text-amber-600 mt-10 mb-10'>Resume Editor</h1>
       <RichTextEditor value={value} onChange={handleContentChange} />
     </div>
   )

@@ -16,27 +16,27 @@ import CodeLeaf from '../CodeLeaf';
 import { KbdLeaf } from '../KbdLeaf';
 
 const BasicMarksKit = [
-  BoldPlugin,
-  ItalicPlugin,
-  UnderlinePlugin,
+  BoldPlugin, // 粗体
+  ItalicPlugin, // 斜体
+  UnderlinePlugin, // 下划线
   CodePlugin.configure({
-    node: { component: CodeLeaf },
+    node: { component: CodeLeaf }, // 代码
     shortcuts: { toggle: { keys: 'mod+e' } },
   }),
-  StrikethroughPlugin.configure({
+  StrikethroughPlugin.configure({ // 删除线
     shortcuts: { toggle: { keys: 'mod+shift+x' } },
   }),
-  SubscriptPlugin.configure({
+  SubscriptPlugin.configure({ // 下标
     shortcuts: { toggle: { keys: 'mod+comma' } },
   }),
-  SuperscriptPlugin.configure({
+  SuperscriptPlugin.configure({ // 上标
     shortcuts: { toggle: { keys: 'mod+period' } },
   }),
-  HighlightPlugin.configure({
+  HighlightPlugin.configure({ // 高亮
     node: { component: HighlightLeaf },
     shortcuts: { toggle: { keys: 'mod+shift+h' } },
   }),
-  KbdPlugin.withComponent(KbdLeaf),
+  KbdPlugin.withComponent(KbdLeaf), // 键盘
 ];
 
 export default BasicMarksKit

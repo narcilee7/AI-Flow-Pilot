@@ -1,7 +1,7 @@
 import { cn } from "@/utils/styleHelper";
 import { PlateContainer } from "platejs/react";
 import { VariantProps } from "tailwind-variants";
-import { editorContainerVariants } from "./styles/editorContainerVariants";
+import { editorContainerVariants } from "./styles/EditorContainerVariants";
 
 const EditorContainer = ({
   className,

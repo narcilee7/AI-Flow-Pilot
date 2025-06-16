@@ -20,7 +20,7 @@ const RichTextEditor = (props: RichTextEditorProps) => {
   const editor = usePlateEditor(
     {
       plugins: [
-        ...BasicMarksKit
+        ...BasicMarksKit, // 基础标记插件
       ],
       value,
     }
