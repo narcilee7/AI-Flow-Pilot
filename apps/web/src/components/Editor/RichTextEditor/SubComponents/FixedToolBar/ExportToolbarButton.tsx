@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger
 } from '@/components/Editor/RichTextEditor/SubComponents/DropdownMenu'
 import { BaseEditorKit } from '@/components/Editor/RichTextEditor/plugins/Kit/BaseEditorKit'
-import { ToolbarButton } from '@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/ToolBar'
+import { ToolbarButton } from '@/components/ToolBar/ToolBar'
 import { EditorStatic } from '../EditorStatic'
 
 // 导出工具栏按钮

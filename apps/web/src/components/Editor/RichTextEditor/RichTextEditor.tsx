@@ -20,7 +20,7 @@ const RichTextEditor = (props: RichTextEditorProps) => {
   const editor = usePlateEditor(
     {
       plugins: [
-        ...EditorKit, // 基础标记插件
+        ...EditorKit,
       ],
       value,
     }

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEditorReadOnly } from "platejs/react"
-import { ToolbarGroup } from "./ToolBar"
+import { ToolbarGroup } from "../../../../ToolBar/ToolBar"
 import { UndoToolbarButton, RedoToolbarButton } from "./History-Toolbar-Button"
 import { AIToolbarButton } from "../AI/AIToolbarButton"
 import { ArrowUpToLineIcon, WandSparklesIcon } from "lucide-react"

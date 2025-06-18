@@ -13,7 +13,7 @@ import {
   DropdownMenuSeparator, 
 } from '@/components/Editor/RichTextEditor/SubComponents/DropdownMenu';
 import { Separator } from '@/components/Editor/RichTextEditor/SubComponents/Separator';
-import { Tooltip, TooltipTrigger } from '@/components/Editor/RichTextEditor/SubComponents/ToolTip';
+import { Tooltip, TooltipTrigger } from '@/components/ToolTip';
 import { cn } from '@/utils/styleHelper';
 
 export function Toolbar({

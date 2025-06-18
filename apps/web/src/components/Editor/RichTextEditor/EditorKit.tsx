@@ -20,6 +20,10 @@ const EditorKit = [
   ...ToggleKit,
   // 目录套件
   ...TocKit,
+  // 媒体套件
+  // ...MediaKit,
+  // 提示框套件
+  // ...CalloutKit,
 
   // Mark
   ...BasicMarksKit,
