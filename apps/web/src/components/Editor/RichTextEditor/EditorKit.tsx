@@ -4,6 +4,7 @@ import BasicMarksKit from "./plugins/Kit/BasicMarksKit";
 import CodeBlockKit from "./plugins/Kit/CodeBlockKit";
 import { BlockPlaceHolderKit } from "./plugins/Placeholder/BlockPlaceHolderKit";
 import { ToggleKit } from "./plugins/Kit/ToggleKit";
+import { TocKit } from "./plugins/Kit/TocKit";
 
 const EditorKit = [
   // AI
@@ -17,6 +18,8 @@ const EditorKit = [
   // ...TableKit, 
   // Toggle套件
   ...ToggleKit,
+  // 目录套件
+  ...TocKit,
 
   // Mark
   ...BasicMarksKit,

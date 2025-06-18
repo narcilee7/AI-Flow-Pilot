@@ -27,6 +27,7 @@
     "@platejs/indent": "^49.0.0",
     "@platejs/markdown": "^49.0.0",
     "@platejs/table": "^49.0.1",
+    "@platejs/toc": "^49.0.0",
     "@platejs/toggle": "^49.0.0",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
