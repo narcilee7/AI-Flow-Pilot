@@ -3,9 +3,12 @@
 import * as React from 'react'
 
 import type { TCodeBlockElement } from 'platejs'
-import { PlateElement, PlateElementProps } from 'platejs/react'
+import { PlateElement, PlateElementProps, useEditorRef, useElement, useReadOnly } from 'platejs/react'
 import { cn } from '@/utils/styleHelper'
-import { isLangSupported } from '@platejs/code-block'
+import { formatCodeBlock, isLangSupported } from '@platejs/code-block'
+import { Button } from '@/components/Button'
+import { BracesIcon } from 'lucide-react'
+import { languages } from './constants'
 
 /**
  * 代码块
@@ -26,12 +29,50 @@ export function CodeBlockElement(props: PlateElementProps<TCodeBlockElement>) {
         </pre>
         {/* 头部 */}
         <div className='absolute top-1 right-1 z-10 flex gap-0.5 select-none' contentEditable={false}>
-          {/* 支持语言 */}
+          {/* 支持语言 Format Code*/}
           {isLangSupported(element.lang) && (
-            // <Button 
+            <Button
+              size="icon"
+              variant='ghost'
+              className='size-6 text-xs'
+              title='Format code'
+              onClick={() => formatCodeBlock(editor, { element })}
+            >
+              <BracesIcon className="!size-3.5 text-muted-foreground" />
+            </Button> 
           )}
+
+          <CodeBlockCombobox />
         </div>
       </div>
     </PlateElement>
+  )
+}
+
+const CodeBlockCombobox = () => {
+  const readOnly = useReadOnly()
+  const editorRef = useEditorRef()
+  const element = useElement<TCodeBlockElement>()
+
+  const value = element.lang || 'plainText'
+  // 选中
+  const [searchValue, setSearchValue] = React.useState('')
+  const [open, setOpen] = React.useState(false)
+
+  const items = React.useMemo(
+    () => {
+      languages.filter(
+        (language) => 
+          !searchValue ||
+          language.label.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) 
+      )
+    },
+    [searchValue]
+  )
+
+  if (readOnly) return null
+
+  return (
+    <Popover></Popover>
   )
 }
