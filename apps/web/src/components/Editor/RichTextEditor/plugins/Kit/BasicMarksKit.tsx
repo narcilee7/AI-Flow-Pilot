@@ -11,9 +11,9 @@ import {
   SuperscriptPlugin,
   UnderlinePlugin,
 } from '@platejs/basic-nodes/react';
-import HighlightLeaf from '../HighLightLeaf';
-import CodeLeaf from '../CodeLeaf';
-import { KbdLeaf } from '../KbdLeaf';
+import HighlightLeaf from '../../HighLightLeaf';
+import CodeLeaf from '../../CodeLeaf';
+import { KbdLeaf } from '../../KbdLeaf';
 
 const BasicMarksKit = [
   BoldPlugin, // 粗体

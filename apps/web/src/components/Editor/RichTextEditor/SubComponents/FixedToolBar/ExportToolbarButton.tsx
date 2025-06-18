@@ -12,7 +12,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@/components/Editor/RichTextEditor/SubComponents/DropdownMenu'
-import { BaseEditorKit } from '@/components/Editor/RichTextEditor/plugins/BaseEditorKit'
+import { BaseEditorKit } from '@/components/Editor/RichTextEditor/plugins/Kit/BaseEditorKit'
 import { ToolbarButton } from '@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/ToolBar'
 import { EditorStatic } from '../EditorStatic'
 

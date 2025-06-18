@@ -1,5 +1,5 @@
-import { BaseBasicBlocksKit } from './Basic/Block-Base-Kit';
-import { BaseCodeBlockKit } from './Code/BaseBlockKit';
+import { BaseBasicBlocksKit } from '../Basic/Block-Base-Kit';
+import { BaseCodeBlockKit } from '../Code/BaseBlockKit';
 
 // 基础编辑器插件
 export const BaseEditorKit = [

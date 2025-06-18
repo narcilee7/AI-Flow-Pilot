@@ -4,7 +4,7 @@ import type { Value } from 'platejs'
 import { Plate, usePlateEditor } from 'platejs/react'
 import EditorContainer from './EditorContaner';
 import Editor from './Editor';
-import BasicMarksKit from './plugins/BasicMarksKit';
+import EditorKit from './EditorKit';
 
 interface RichTextEditorProps {
   value: Value;
@@ -20,7 +20,7 @@ const RichTextEditor = (props: RichTextEditorProps) => {
   const editor = usePlateEditor(
     {
       plugins: [
-        ...BasicMarksKit, // 基础标记插件
+        ...EditorKit, // 基础标记插件
       ],
       value,
     }
