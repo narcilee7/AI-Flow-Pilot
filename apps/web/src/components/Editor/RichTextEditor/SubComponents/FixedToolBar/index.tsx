@@ -1,6 +1,6 @@
 'use client'
 
-import { Toolbar } from "../../../../ToolBar/ToolBar"
+import { Toolbar } from "@/components/ToolBar/ToolBar"
 import { cn } from "@/utils/styleHelper"
 
 export function FixedToolBar(props: React.ComponentProps<typeof Toolbar>) {

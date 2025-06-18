@@ -2,9 +2,9 @@
 
 import type { Value } from 'platejs'
 import { Plate, usePlateEditor } from 'platejs/react'
-import EditorContainer from './EditorContaner';
-import Editor from './Editor';
-import EditorKit from './EditorKit';
+import EditorContainer from './EditorContaner'
+import Editor from './Editor'
+import EditorKit from './EditorKit'
 
 interface RichTextEditorProps {
   value: Value;

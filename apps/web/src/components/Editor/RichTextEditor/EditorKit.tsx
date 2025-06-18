@@ -5,6 +5,7 @@ import CodeBlockKit from "./plugins/Kit/CodeBlockKit";
 import { BlockPlaceHolderKit } from "./plugins/Placeholder/BlockPlaceHolderKit";
 import { ToggleKit } from "./plugins/Kit/ToggleKit";
 import { TocKit } from "./plugins/Kit/TocKit";
+import { FixedToolBarKit } from "./plugins/Kit/FixedToolBarKit";
 
 const EditorKit = [
   // AI
@@ -36,7 +37,10 @@ const EditorKit = [
   
 
   // UI
-  ...BlockPlaceHolderKit, // 块占位符
+  // 块占位符
+  ...BlockPlaceHolderKit,
+  // 固定工具栏
+  ...FixedToolBarKit,
 ]
 
 export default EditorKit
