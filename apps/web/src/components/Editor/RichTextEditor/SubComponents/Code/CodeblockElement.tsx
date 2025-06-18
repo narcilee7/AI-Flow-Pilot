@@ -9,6 +9,7 @@ import { formatCodeBlock, isLangSupported } from '@platejs/code-block'
 import { Button } from '@/components/Button'
 import { BracesIcon } from 'lucide-react'
 import { languages } from './constants'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/Popover/Popover'
 
 /**
  * 代码块
@@ -73,6 +74,21 @@ const CodeBlockCombobox = () => {
   if (readOnly) return null
 
   return (
-    <Popover></Popover>
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button
+          size="sm"
+          variant="ghost"
+          className="h-6 justify-between gap-1 px-2 text-xs text-muted-foreground select-none"
+          aria-expanded={open}
+          role="combobox"
+        >
+          {languages.find((language) => language.value === value)?.label ??
+            'Plain Text'}
+        </Button>
+      </PopoverTrigger> 
+      <PopoverContent className='w-[200px] p-0' onCloseAutoFocus={() => setSearchValue('')}>
+      </PopoverContent>
+    </Popover>
   )
 }
