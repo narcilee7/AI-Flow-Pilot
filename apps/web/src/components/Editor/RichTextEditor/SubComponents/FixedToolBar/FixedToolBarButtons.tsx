@@ -16,6 +16,9 @@ import { FontColorToolbarButton } from "./FontColorToolbarButton"
 import { AlignToolbarButton } from "./AlignToolbarButton"
 import { BulletedListToolbarButton, NumberedListToolbarButton, TodoListToolbarButton } from "./ListToolbarButtons"
 import { ToggleToolbarButton } from "./ToggleToolbarButton"
+import { LinkToolbarButton } from "./LinkToolbarButton"
+import { TableToolbarButton } from "./TableToolbarButton"
+import { EmojiToolbarButton } from "./EmojiToolbarButton"
 
 export function FixedToolBarButtons() {
   const readOnly = useEditorReadOnly()
@@ -108,6 +111,13 @@ export function FixedToolBarButtons() {
 
             {/* 折叠 */}
             <ToggleToolbarButton />
+          </ToolbarGroup>
+
+          {/* 链接 表格 emoji */}
+          <ToolbarGroup>
+            <LinkToolbarButton />
+            <TableToolbarButton />
+            <EmojiToolbarButton />
           </ToolbarGroup>
         </>
       )}
