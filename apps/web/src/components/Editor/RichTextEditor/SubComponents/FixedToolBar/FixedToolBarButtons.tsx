@@ -9,6 +9,7 @@ import { ExportToolbarButton } from "./ExportToolbarButton"
 import { ImportToolbarButton } from "./ImportToolbarButton"
 import { InsertToolbarButton } from "./InsertToolbarButton"
 import { TurnInfoToolbarButton } from "./TurnInfoToolbarButton"
+import { FontSizeToolbarButton } from "./FontSizeToolbarButton"
 
 export function FixedToolBarButtons() {
   const readOnly = useEditorReadOnly()
@@ -46,7 +47,6 @@ export function FixedToolBarButtons() {
             {/* 字号调整 */}
             <FontSizeToolbarButton />
           </ToolbarGroup>
-
         </>
       )}
     </div>
