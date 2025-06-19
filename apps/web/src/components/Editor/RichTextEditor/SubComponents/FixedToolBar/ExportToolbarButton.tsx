@@ -11,16 +11,16 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger
-} from '@/components/Editor/RichTextEditor/SubComponents/DropdownMenu'
+} from '@/components/DropdownMenu'
 import { BaseEditorKit } from '@/components/Editor/RichTextEditor/plugins/Kit/BaseEditorKit'
 import { ToolbarButton } from '@/components/ToolBar/ToolBar'
 import { EditorStatic } from '../EditorStatic'
 
 // 导出工具栏按钮
-type ExportToolbarButtonProps = React.ComponentProps<typeof DropdownMenuTrigger>
+type ExportToolbarButtonProps = React.ComponentProps<typeof DropdownMenu>
 
 const ExportToolbarButton = (props: ExportToolbarButtonProps) => {
-  const editor = useEditorRef()
+  const editorRef = useEditorRef()
   const [open, setOpen] = React.useState(false)
 
   const getCanvas = async () => {
@@ -30,8 +30,9 @@ const ExportToolbarButton = (props: ExportToolbarButtonProps) => {
 
     document.head.append(style)
 
-    const canvas = await html2canvas(editor.api.toDOMNode(editor)!, {
+    const canvas = await html2canvas(editorRef.api.toDOMNode(editorRef)!, {
       onclone: (document: Document) => {
+        // 编辑元素
         const editorElement = document.querySelector(
           '[contenteditable="true"]'
         )
@@ -75,10 +76,14 @@ const ExportToolbarButton = (props: ExportToolbarButtonProps) => {
 
     const PDFLib = await import('pdf-lib')
     const pdfDoc = await PDFLib.PDFDocument.create()
+    // 构建页面，设置页面大小
     const page = pdfDoc.addPage([canvas.width, canvas.height])
+    // 构建嵌入图片
     const imageEmbed = await pdfDoc.embedPng(canvas.toDataURL('PNG'))
 
+    // 设置图片大小
     const { height, width } = imageEmbed.scale(1)
+    // 将图片绘制到pdf页面上
     page.drawImage(imageEmbed, {
       height,
       width,
@@ -86,9 +91,10 @@ const ExportToolbarButton = (props: ExportToolbarButtonProps) => {
       y: 0
     })
 
+    // 将pdf转换为base64
     const pdfBase64 = await pdfDoc.saveAsBase64({ dataUri: true })
 
-    await downloadFile(pdfBase64, 'plate.pdf')
+    await downloadFile(pdfBase64, 'ai_job_pilot_export.pdf')
   }
 
   const exportToImage = async () => {
@@ -96,15 +102,17 @@ const ExportToolbarButton = (props: ExportToolbarButtonProps) => {
 
     const image = await canvas.toDataURL('image/png')
 
-    await downloadFile(image, 'plate.png')
+    await downloadFile(image, 'ai_job_pilot_export.png')
   }
 
   const exportToHTML = async () => {
+    // 创建静态编辑器
     const editorStatic = createSlateEditor({
       plugins: BaseEditorKit,
-      value: editor.children
+      value: editorRef.children
     })
 
+    // 将静态编辑器转换为html
     const editorHtml = await serializeHtml(editorStatic, {
       editorComponent: EditorStatic,
       props: { style: { padding: '0 calc(50% - 350px)', paddingBottom: '' } },
@@ -143,7 +151,7 @@ const ExportToolbarButton = (props: ExportToolbarButtonProps) => {
   }
 
   const exportToMarkdown = async () => {
-    const md = editor.getApi(MarkdownPlugin).markdown.serialize()
+    const md = editorRef.getApi(MarkdownPlugin).markdown.serialize()
     const url = `data:text/markdown;charset=utf-8,${encodeURIComponent(md)}`
 
     await downloadFile(url, 'ai_job_pilot_export.md')
@@ -160,16 +168,16 @@ const ExportToolbarButton = (props: ExportToolbarButtonProps) => {
       <DropdownMenuContent align="start">
         <DropdownMenuGroup>
           <DropdownMenuItem onSelect={exportToHTML}>
-            Export as HTML
+            导入为HTML
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={exportToPdf}>
-            Export as PDF
+            导入为PDF
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={exportToImage}>
-            Export as Image
+            导入为图片
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={exportToMarkdown}>
-            Export as Markdown
+            导入为Markdown
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>

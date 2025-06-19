@@ -11,7 +11,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuSeparator, 
-} from '@/components/Editor/RichTextEditor/SubComponents/DropdownMenu';
+} from '@/components/DropdownMenu';
 import { Separator } from '@/components/Editor/RichTextEditor/SubComponents/Separator';
 import { Tooltip, TooltipTrigger } from '@/components/ToolTip';
 import { cn } from '@/utils/styleHelper';
