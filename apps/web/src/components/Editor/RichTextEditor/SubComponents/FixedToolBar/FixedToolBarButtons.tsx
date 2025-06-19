@@ -13,6 +13,9 @@ import { FontSizeToolbarButton } from "./FontSizeToolbarButton"
 import { MarkToolbarButton } from "./MarkToolbarButton"
 import { KEYS } from "platejs"
 import { FontColorToolbarButton } from "./FontColorToolbarButton"
+import { AlignToolbarButton } from "./AlignToolbarButton"
+import { BulletedListToolbarButton, NumberedListToolbarButton, TodoListToolbarButton } from "./ListToolbarButtons"
+import { ToggleToolbarButton } from "./ToggleToolbarButton"
 
 export function FixedToolBarButtons() {
   const readOnly = useEditorReadOnly()
@@ -92,6 +95,19 @@ export function FixedToolBarButtons() {
             >
               <PaintBucketIcon />
             </FontColorToolbarButton>
+          </ToolbarGroup>
+
+          {/* 排版对齐 */}
+          <ToolbarGroup>
+            <AlignToolbarButton />
+
+            {/* 列表 */}
+            <BulletedListToolbarButton />
+            <NumberedListToolbarButton />
+            <TodoListToolbarButton />
+
+            {/* 折叠 */}
+            <ToggleToolbarButton />
           </ToolbarGroup>
         </>
       )}
