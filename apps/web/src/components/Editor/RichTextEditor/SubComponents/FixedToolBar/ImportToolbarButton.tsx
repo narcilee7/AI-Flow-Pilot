@@ -17,7 +17,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/DropdownMenu'
-import { ToolbarButton } from '@/components/ToolBar/ToolBar'
+import { ToolbarButton } from '@/components/ToolBar'
 
 type ImportType = 'html' | 'markdown'
 

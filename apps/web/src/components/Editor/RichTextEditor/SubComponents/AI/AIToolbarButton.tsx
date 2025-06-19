@@ -4,7 +4,7 @@ import * as React from 'react'
 
 import { AIChatPlugin } from '@platejs/ai/react'
 import { useEditorPlugin } from 'platejs/react'
-import { ToolbarButton } from '@/components/ToolBar/ToolBar'
+import { ToolbarButton } from '@/components/ToolBar'
 
 type AIToolbarButtonProps = React.ComponentProps<typeof ToolbarButton>
 

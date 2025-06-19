@@ -38,7 +38,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/DropdownMenu'
-import { ToolbarButton, ToolbarMenuGroup, ToolbarToggleGroup } from '@/components/ToolBar/ToolBar'
+import { ToolbarButton, ToolbarMenuGroup, ToolbarToggleGroup } from '@/components/ToolBar'
 import { insertBlock, insertInlineElement } from '../Transforms'
 
 type InsertToolbarButtonProps = React.ComponentProps<typeof DropdownMenu>

@@ -22,22 +22,6 @@ import { SuggestionPlugin } from '@platejs/suggestion/react'
 const ACTION_THREE_COLUMNS = 'action_three_columns'
 
 class Helpers {
-  static getBlockType(block: TElement) {
-    if (block[KEYS.listType]) {
-      // 有序列表
-      if (block[KEYS.listType] === KEYS.ol) {
-        return KEYS.ol
-      } else if (block[KEYS.listType] === KEYS.listTodo) {
-        // 待办列表
-        return KEYS.listTodo
-      } else {
-        // 无序列表
-        return KEYS.ul
-      }
-    }
-  
-    return block.type
-  }
   /**
    * 插入列表
    * @param editor 编辑器实例
@@ -134,7 +118,7 @@ export function insertBlock (editor: PlateEditor, type: string) {
       })
     }
 
-    if (Helpers.getBlockType(block[0]) !== type) {
+    if (getBlockType(block[0]) !== type) {
       editor.getApi(SuggestionPlugin).suggestion.withoutSuggestions(() => {
         editor.tf.removeNodes({ previousEmptyBlock: true });
       });
@@ -152,7 +136,7 @@ export function insertInlineElement(editor: PlateEditor, type: string) {
   }
 }
 
-export function setBlockType(editor: PlateEditor, type: string, { at }: { at?: Path }) {
+export function setBlockType(editor: PlateEditor, type: string, { at }: { at?: Path } = {}) {
   editor.tf.withoutNormalizing(() => {
     const setEntry = (entry: NodeEntry<TElement>) => {
       const [node, path] = entry
@@ -184,4 +168,21 @@ export function setBlockType(editor: PlateEditor, type: string, { at }: { at?: P
     // 遍历所有块节点，设置节点类型
     entries.forEach((entry) => setEntry(entry))
   })
+}
+
+export function getBlockType(block: TElement) {
+  if (block[KEYS.listType]) {
+    // 有序列表
+    if (block[KEYS.listType] === KEYS.ol) {
+      return KEYS.ol
+    } else if (block[KEYS.listType] === KEYS.listTodo) {
+      // 待办列表
+      return KEYS.listTodo
+    } else {
+      // 无序列表
+      return KEYS.ul
+    }
+  }
+
+  return block.type
 }
