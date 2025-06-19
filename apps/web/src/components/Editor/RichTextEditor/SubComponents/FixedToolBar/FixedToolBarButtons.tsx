@@ -37,6 +37,10 @@ export function FixedToolBarButtons() {
             <ImportToolbarButton />
           </ToolbarGroup>
 
+          {/* 插入 */}
+          <ToolbarGroup>
+            <InsertToolbarButton />
+          </ToolbarGroup>
 
         </>
       )}
