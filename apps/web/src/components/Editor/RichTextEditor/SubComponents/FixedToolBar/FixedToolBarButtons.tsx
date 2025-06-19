@@ -7,6 +7,7 @@ import { AIToolbarButton } from "../AI/AIToolbarButton"
 import { ArrowUpToLineIcon, WandSparklesIcon } from "lucide-react"
 import { ExportToolbarButton } from "./ExportToolbarButton"
 import { ImportToolbarButton } from "./ImportToolbarButton"
+import { InsertToolbarButton } from "./InsertToolbarButton"
 
 export function FixedToolBarButtons() {
   const readOnly = useEditorReadOnly()
@@ -37,7 +38,7 @@ export function FixedToolBarButtons() {
             <ImportToolbarButton />
           </ToolbarGroup>
 
-          {/* 插入 */}
+          {/* 插入各种元素 */}
           <ToolbarGroup>
             <InsertToolbarButton />
           </ToolbarGroup>
