@@ -4,7 +4,7 @@ import { useEditorReadOnly } from "platejs/react"
 import { ToolbarGroup } from "../../../../ToolBar"
 import { UndoToolbarButton, RedoToolbarButton } from "./History-Toolbar-Button"
 import { AIToolbarButton } from "../AI/AIToolbarButton"
-import { ArrowUpToLineIcon, BaselineIcon, BoldIcon, Code2Icon, ItalicIcon, PaintBucketIcon, StrikethroughIcon, UnderlineIcon, WandSparklesIcon } from "lucide-react"
+import { ArrowUpToLineIcon, BaselineIcon, BoldIcon, Code2Icon, HighlighterIcon, ItalicIcon, PaintBucketIcon, StrikethroughIcon, UnderlineIcon, WandSparklesIcon } from "lucide-react"
 import { ExportToolbarButton } from "./ExportToolbarButton"
 import { ImportToolbarButton } from "./ImportToolbarButton"
 import { InsertToolbarButton } from "./InsertToolbarButton"
@@ -19,6 +19,11 @@ import { ToggleToolbarButton } from "./ToggleToolbarButton"
 import { LinkToolbarButton } from "./LinkToolbarButton"
 import { TableToolbarButton } from "./TableToolbarButton"
 import { EmojiToolbarButton } from "./EmojiToolbarButton"
+import { MediaToolbarButton } from "./MediaToolbarButton"
+import { LineHeightToolbarButton } from "./LineHeightToolbarButton"
+import { OutdentToolbarButton, IndentToolbarButton } from "./IndentToolbarButton"
+import { MoreToolbarButton } from "./MoreToolbarButton"
+import { ModeToolbarButton } from "./ModeToolbarButton"
 
 export function FixedToolBarButtons() {
   const readOnly = useEditorReadOnly()
@@ -119,8 +124,44 @@ export function FixedToolBarButtons() {
             <TableToolbarButton />
             <EmojiToolbarButton />
           </ToolbarGroup>
+
+          {/* 图片 视频 音频 文件 */}
+          <ToolbarGroup>
+            <MediaToolbarButton nodeType={KEYS.img} />
+            <MediaToolbarButton nodeType={KEYS.video} />
+            <MediaToolbarButton nodeType={KEYS.audio} />
+            <MediaToolbarButton nodeType={KEYS.file} />
+          </ToolbarGroup>
+
+          {/* 行高 缩进 外缩 */}
+          <ToolbarGroup>  
+            <LineHeightToolbarButton />
+            <IndentToolbarButton />
+            <OutdentToolbarButton />
+          </ToolbarGroup>
+
+          {/* 更多 */}
+          <ToolbarGroup>
+            <MoreToolbarButton />
+          </ToolbarGroup>
         </>
       )}
+
+      <div className="grow" />
+
+      <ToolbarGroup>
+        {/* 高亮 */}
+        <MarkToolbarButton nodeType={KEYS.highlight} tooltip="Highlight">
+          <HighlighterIcon />
+        </MarkToolbarButton>
+        {/* 评论 TODO: 实现评论插件 */}
+        {/* <CommentToolbarButton /> */}
+      </ToolbarGroup>
+
+      <ToolbarGroup>
+        {/* 模式 */}
+        <ModeToolbarButton />
+      </ToolbarGroup>
     </div>
   )
 }
