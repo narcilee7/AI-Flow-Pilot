@@ -13,7 +13,7 @@
 # testing
 /coverage
 
-# next.js
+# node-internal.js
 /.next/
 /out/
 

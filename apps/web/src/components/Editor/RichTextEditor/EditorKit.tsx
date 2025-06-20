@@ -1,4 +1,3 @@
-import { BaseAlignKit } from "./plugins/Kit/BaseAlignKit";
 import { BasicBlockKit } from "./plugins/Kit/BasicBlockKit";
 import BasicMarksKit from "./plugins/Kit/BasicMarksKit";
 import CodeBlockKit from "./plugins/Kit/CodeBlockKit";
@@ -7,8 +6,9 @@ import { ToggleKit } from "./plugins/Kit/ToggleKit";
 import { TocKit } from "./plugins/Kit/TocKit";
 import { FixedToolBarKit } from "./plugins/Kit/FixedToolBarKit";
 import { FloatingToolbarKit } from '@/components/Editor/RichTextEditor/plugins/Kit/FloatingToolbarKit';
-import { DocKit } from '@/components/Editor/RichTextEditor/plugins/Kit/DocKit';
+import { DocxKit } from '@/components/Editor/RichTextEditor/plugins/Kit/DocKit';
 import { MarkdownKit } from '@/components/Editor/RichTextEditor/plugins/Kit/MarkdownKit';
+import { TableKit } from '@/components/Editor/RichTextEditor/plugins/Kit/TableKit';
 
 const EditorKit = [
   // AI
@@ -19,7 +19,7 @@ const EditorKit = [
   // 代码块套件
   ...CodeBlockKit,
   // 表格套件 TODO: 待实现
-  // ...TableKit,
+  ...TableKit,
   // Toggle套件
   ...ToggleKit,
   // 目录套件
@@ -39,8 +39,8 @@ const EditorKit = [
   // Editing
 
 	// Parsers
-	// Doc解析
-	...DocKit,
+	// Docx解析
+	...DocxKit,
 	...MarkdownKit,
 
   // UI

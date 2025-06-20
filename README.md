@@ -33,7 +33,7 @@ FlowPilot：做你的求职领航员。
   
 ### 技术栈
 
-1. 前端：next.js vue.js
+1. 前端：node-internal.js vue.js
 2. 后端：koa prisma
 3. typescript
 4. AI: Langchain + HuggingFace Transformers

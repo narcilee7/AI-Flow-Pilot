@@ -23,8 +23,7 @@
         "@jobPilot/core-vectors": ["packages/core-vectors/src"],
         "@jobPilot/lib": ["packages/lib/src"],
         "@jobPilot/core-prompts": ["packages/core-prompts/src"],
-        "@jobPilot/ui": ["packages/ui/src"]
     }
   },
   "exclude": ["node_modules"]
-} 
+}

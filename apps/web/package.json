@@ -7,9 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "check-types": "tsc --noEmit",
-    "lint:fix": "eslint src/ --fix"
+    "check-types": "tsc --noEmit"
   },
   "dependencies": {
     "@emoji-mart/data": "^1.2.1",
@@ -33,7 +31,6 @@
     "@platejs/emoji": "^49.0.0",
     "@platejs/floating": "^49.0.0",
     "@platejs/indent": "^49.0.0",
-    "@platejs/juice": "^49.0.0",
     "@platejs/layout": "^49.0.0",
     "@platejs/link": "^49.0.0",
     "@platejs/list": "^49.0.0",
@@ -63,6 +60,7 @@
     "geist": "^1.4.2",
     "html2canvas-pro": "^1.5.11",
     "immutable": "^5.1.2",
+    "juice": "^10.0.1",
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",
     "lowlight": "^3.3.0",
@@ -83,21 +81,21 @@
     "sonner": "^2.0.5",
     "tailwind-merge": "^3.3.0",
     "tailwind-variants": "^1.0.0",
+    "undici": "^5.29.0",
     "use-file-picker": "^2.1.2"
   },
   "devDependencies": {
+    "@jobPilot/eslint-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.8",
     "@types/lodash": "^4.17.18",
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@types/react-redux": "^7.1.34",
-    "@typescript-eslint/eslint-plugin": "^7.0.1",
-    "@typescript-eslint/parser": "^7.0.1",
     "autoprefixer": "^10.4.21",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^14.1.0",
+    "eslint-plugin-prettier": "^5.5.0",
     "postcss": "^8.5.4",
+    "prettier": "^3.5.3",
     "tailwindcss": "^4.1.8",
     "tw-animate-css": "^1.3.4",
     "typescript": "^5.3.3"

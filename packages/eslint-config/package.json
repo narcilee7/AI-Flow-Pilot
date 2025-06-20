@@ -1,0 +1,37 @@
+{
+  "name": "@jobPilot/eslint-config",
+  "version": "0.0.1",
+  "private": true,
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup src/*.js --format cjs,esm --dts",
+    "dev": "tsup src/*.js --format cjs,esm --dts --watch"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./base": {
+      "import": "./dist/base.mjs",
+      "require": "./dist/base.js"
+    },
+    "./reactInternal": {
+      "import": "./dist/react-internal.mjs",
+      "require": "./dist/react-internal.js"
+    },
+    "./vueInternal": {
+      "import": "./dist/vue-internal.mjs",
+      "require": "./dist/vue-internal.js"
+    },
+    "./nodeInternal": {
+      "import": "./dist/node-internal.mjs",
+      "require": "./dist/node-internal.js"
+    }
+  }
+}

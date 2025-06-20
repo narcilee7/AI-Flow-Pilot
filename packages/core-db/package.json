@@ -16,6 +16,7 @@
     "lint:fix": "eslint src/ --fix"
   },
   "devDependencies": {
+    "@jobPilot/eslint-config": "workspace:*",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3",
     "eslint": "^8.56.0",

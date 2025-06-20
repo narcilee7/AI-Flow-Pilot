@@ -72,10 +72,11 @@ const resizableVariants = cva('', {
 	}
 })
 
-export function Resizable({ align,
-														className,
-														...props
-													}: React.ComponentProps<typeof ResizablePrimitive> &
+export function Resizable(
+	{ align,
+		className,
+		...props
+	}: React.ComponentProps<typeof ResizablePrimitive> &
 	VariantProps<typeof resizableVariants>) {
 	return (
 		<ResizablePrimitive

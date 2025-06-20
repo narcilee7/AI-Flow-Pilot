@@ -35,6 +35,7 @@
     "winston": "^3.17.0"
   },
   "devDependencies": {
+    "@jobPilot/eslint-config": "workspace:*",
     "@types/koa": "^2.15.0",
     "@types/koa__cors": "^5.0.0",
     "@types/koa__router": "^12.0.0",
