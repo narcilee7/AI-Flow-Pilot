@@ -16,7 +16,7 @@ const EditorKit = [
   // 代码块套件
   ...CodeBlockKit,
   // 表格套件 TODO: 待实现
-  // ...TableKit, 
+  // ...TableKit,
   // Toggle套件
   ...ToggleKit,
   // 目录套件
@@ -34,13 +34,15 @@ const EditorKit = [
   // Collaboration
 
   // Editing
-  
+
 
   // UI
   // 块占位符
   ...BlockPlaceHolderKit,
   // 固定工具栏
   ...FixedToolBarKit,
+	// 浮动工具栏
+	
 ]
 
 export default EditorKit

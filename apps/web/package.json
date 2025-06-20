@@ -29,6 +29,7 @@
     "@platejs/comment": "^49.0.0",
     "@platejs/date": "^49.0.2",
     "@platejs/emoji": "^49.0.0",
+    "@platejs/floating": "^49.0.0",
     "@platejs/indent": "^49.0.0",
     "@platejs/layout": "^49.0.0",
     "@platejs/link": "^49.0.0",
