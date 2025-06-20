@@ -7,6 +7,8 @@ import { ToggleKit } from "./plugins/Kit/ToggleKit";
 import { TocKit } from "./plugins/Kit/TocKit";
 import { FixedToolBarKit } from "./plugins/Kit/FixedToolBarKit";
 import { FloatingToolbarKit } from '@/components/Editor/RichTextEditor/plugins/Kit/FloatingToolbarKit';
+import { DocKit } from '@/components/Editor/RichTextEditor/plugins/Kit/DocKit';
+import { MarkdownKit } from '@/components/Editor/RichTextEditor/plugins/Kit/MarkdownKit';
 
 const EditorKit = [
   // AI
@@ -36,6 +38,10 @@ const EditorKit = [
 
   // Editing
 
+	// Parsers
+	// Doc解析
+	...DocKit,
+	...MarkdownKit,
 
   // UI
   // 块占位符
