@@ -6,6 +6,7 @@ import { BlockPlaceHolderKit } from "./plugins/Placeholder/BlockPlaceHolderKit";
 import { ToggleKit } from "./plugins/Kit/ToggleKit";
 import { TocKit } from "./plugins/Kit/TocKit";
 import { FixedToolBarKit } from "./plugins/Kit/FixedToolBarKit";
+import { FloatingToolbarKit } from '@/components/Editor/RichTextEditor/plugins/Kit/FloatingToolbarKit';
 
 const EditorKit = [
   // AI
@@ -42,7 +43,7 @@ const EditorKit = [
   // 固定工具栏
   ...FixedToolBarKit,
 	// 浮动工具栏
-	
+	...FloatingToolbarKit,
 ]
 
 export default EditorKit

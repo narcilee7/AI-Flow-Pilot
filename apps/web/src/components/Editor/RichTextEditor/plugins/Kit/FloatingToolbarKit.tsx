@@ -2,6 +2,9 @@
 
 import { createPlatePlugin } from 'platejs/react'
 import { FloatingToolbar } from '@/components/Editor/RichTextEditor/SubComponents/FloatingToolbar';
+import {
+	FloatingToolbarButtons
+} from '@/components/Editor/RichTextEditor/SubComponents/FloatingToolbar/FloatingToolbarButtons';
 
 export const FloatingToolbarKit = [
 	createPlatePlugin({
@@ -9,7 +12,7 @@ export const FloatingToolbarKit = [
 		render: {
 			afterEditable: () => (
 				<FloatingToolbar>
-					
+					<FloatingToolbarButtons />
 				</FloatingToolbar>
 			)
 		}
