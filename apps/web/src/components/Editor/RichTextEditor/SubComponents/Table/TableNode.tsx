@@ -477,3 +477,78 @@ function RowDropLine() {
 		)} />
 	)
 }
+
+export function TableCellElement({ isHeader, ...props }: PlateElementProps<TTableCellElement> & { isHeader?: boolean }) {
+	const { api } = useEditorPlugin(TablePlugin)
+	const readOnly = useReadOnly()
+	const element = props.element
+
+	const rowId = useElementSelector(([node]) => node.id as string, [], {
+		key: KEYS.tr
+	})
+
+	const isSelectingRow = useBlockSelected(rowId)
+	const isSelectionAreaVisible = usePluginOption(
+		BlockSelectionPlugin,
+		'isSelectionAreaVisible'
+	)
+	const {  borders, colIndex, colSpan, minHeight, rowIndex, selected, width } =
+		useTableCellElement()
+
+	const { bottomProps, hiddenLeft, leftProps, rightProps } =
+		useTableCellElementResizable({
+			colIndex,
+			colSpan,
+			rowIndex
+		})
+
+	return (
+		<PlateElement
+			{...props}
+			as={isHeader ? 'th' : 'td'}
+			className={cn(
+				'h-full overflow-visible border-none bg-background p-0',
+				element.background ? 'bg-(--cellBackground)' : 'bg-background',
+				isHeader && 'text-left *:m-0',
+				'before:size-full',
+				selected && 'before:z-10 before:bg-brand/5',
+				"before:absolute before:box-border before:content-[''] before:select-none",
+				borders.bottom?.size && `before:border-b before:border-b-border`,
+				borders.right?.size && `before:border-r before:border-r-border`,
+				borders.left?.size && `before:border-l before:border-l-border`,
+				borders.top?.size && `before:border-t before:border-t-border`
+			)}
+			style={{
+				'--cellBackground': element.background,
+				maxWidth: width || 240,
+				minWidth: width || 120,
+			} as React.CSSProperties }
+			attributes={{
+				...props.attributes,
+				colSpan: api.table.getColSpan(element),
+				rowSpan: api.table.getRowSpan(element)
+			}}
+		>
+			<div
+				className="relative z-20 box-border h-full px-3 py-2"
+				style={{ minHeight }}
+			>
+				{props.children}
+			</div>
+
+			{!isSelectionAreaVisible && (
+				<div
+					className="group absolute top-0 size-full select-none"
+					contentEditable={false}
+					suppressContentEditableWarning={true}
+				>
+					{!readOnly && (
+						<>
+
+						</>
+					)}
+				</div>
+			)}
+		</PlateElement>
+	)
+}
