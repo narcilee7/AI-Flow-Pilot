@@ -1,6 +1,7 @@
 'use client'
 
 import { useEditorReadOnly } from "platejs/react"
+import { KEYS } from "platejs"
 import { ToolbarGroup } from "../../../../ToolBar"
 import { UndoToolbarButton, RedoToolbarButton } from "./History-Toolbar-Button"
 import { AIToolbarButton } from "../AI/AIToolbarButton"
@@ -11,7 +12,6 @@ import { InsertToolbarButton } from "./InsertToolbarButton"
 import { TurnInfoToolbarButton } from "./TurnInfoToolbarButton"
 import { FontSizeToolbarButton } from "./FontSizeToolbarButton"
 import { MarkToolbarButton } from "./MarkToolbarButton"
-import { KEYS } from "platejs"
 import { FontColorToolbarButton } from "./FontColorToolbarButton"
 import { AlignToolbarButton } from "./AlignToolbarButton"
 import { BulletedListToolbarButton, NumberedListToolbarButton, TodoListToolbarButton } from "./ListToolbarButtons"
@@ -24,6 +24,7 @@ import { LineHeightToolbarButton } from "./LineHeightToolbarButton"
 import { OutdentToolbarButton, IndentToolbarButton } from "./IndentToolbarButton"
 import { MoreToolbarButton } from "./MoreToolbarButton"
 import { ModeToolbarButton } from "./ModeToolbarButton"
+import { CommentToolbarButton } from './CommentToolbarButton'
 
 export function FixedToolBarButtons() {
   const readOnly = useEditorReadOnly()
@@ -134,7 +135,7 @@ export function FixedToolBarButtons() {
           </ToolbarGroup>
 
           {/* 行高 缩进 外缩 */}
-          <ToolbarGroup>  
+          <ToolbarGroup>
             <LineHeightToolbarButton />
             <IndentToolbarButton />
             <OutdentToolbarButton />
@@ -154,8 +155,8 @@ export function FixedToolBarButtons() {
         <MarkToolbarButton nodeType={KEYS.highlight} tooltip="Highlight">
           <HighlighterIcon />
         </MarkToolbarButton>
-        {/* 评论 TODO: 实现评论插件 */}
-        {/* <CommentToolbarButton /> */}
+				 {/* 评论组件 */}
+         <CommentToolbarButton />
       </ToolbarGroup>
 
       <ToolbarGroup>
