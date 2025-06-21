@@ -9,6 +9,12 @@ import { FloatingToolbarKit } from '@/components/Editor/RichTextEditor/plugins/K
 import { DocxKit } from '@/components/Editor/RichTextEditor/plugins/Kit/DocKit';
 import { MarkdownKit } from '@/components/Editor/RichTextEditor/plugins/Kit/MarkdownKit';
 import { TableKit } from '@/components/Editor/RichTextEditor/plugins/Kit/TableKit';
+import { MediaKit } from "./plugins/Kit/MediaKit";
+import { CalloutKit } from "./plugins/Kit/CalloutKit";
+import { ColumnKit } from "./plugins/Kit/ColumnKit";
+import { MathKit } from "./plugins/Kit/MathKit";
+import { DateKit } from "./plugins/Kit/DateKit";
+import { LinkKit } from "./plugins/Kit/LinkKit";
 
 const EditorKit = [
   // AI
@@ -24,13 +30,15 @@ const EditorKit = [
   ...ToggleKit,
   // 目录套件
   ...TocKit,
-  // ...MediaKit,
-  // ...CalloutKit,
-  // ...ColumnKit,
-  // ...MathKit,
-  // ...DateKit,
-  // ...LinkKit,
-  // ...MentionKit,
+  // 多媒体套件
+  ...MediaKit,
+  // 
+  ...CalloutKit,
+  ...ColumnKit,
+  ...MathKit,
+  ...DateKit,
+  ...LinkKit,
+  ...MentionKit,
 
   /** Mark **/
   ...BasicMarksKit,

@@ -10,6 +10,7 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@ariakit/react": "^0.4.17",
     "@emoji-mart/data": "^1.2.1",
     "@jobPilot/core-agents": "workspace:*",
     "@jobPilot/core-ai": "workspace:*",
@@ -23,7 +24,9 @@
     "@platejs/basic-nodes": "^49.0.0",
     "@platejs/basic-styles": "^49.0.0",
     "@platejs/callout": "^49.0.0",
+    "@platejs/caption": "^49.0.0",
     "@platejs/code-block": "^49.0.0",
+    "@platejs/combobox": "^49.0.0",
     "@platejs/comment": "^49.0.0",
     "@platejs/date": "^49.0.2",
     "@platejs/dnd": "^49.0.0",
@@ -37,6 +40,7 @@
     "@platejs/markdown": "^49.0.0",
     "@platejs/math": "^49.0.0",
     "@platejs/media": "^49.0.0",
+    "@platejs/mention": "^49.0.0",
     "@platejs/resizable": "^49.0.0",
     "@platejs/selection": "^49.0.1",
     "@platejs/suggestion": "^49.0.0",
@@ -53,6 +57,7 @@
     "@radix-ui/react-tooltip": "^1.2.7",
     "@reduxjs/toolkit": "^2.8.2",
     "@udecode/cn": "^48.0.3",
+    "@uploadthing/react": "7.3.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
@@ -71,9 +76,11 @@
     "pdf-lib": "^1.17.1",
     "platejs": "^49.0.2",
     "react": "^18.2.0",
+    "react-day-picker": "^9.7.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^10.1.0",
     "react-redux": "^9.2.0",
+    "react-textarea-autosize": "^8.5.9",
     "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
     "slate": "^0.115.1",
@@ -82,7 +89,9 @@
     "tailwind-merge": "^3.3.0",
     "tailwind-variants": "^1.0.0",
     "undici": "^5.29.0",
-    "use-file-picker": "^2.1.2"
+    "uploadthing": "7.7.2",
+    "use-file-picker": "^2.1.4",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@jobPilot/eslint-config": "workspace:*",
