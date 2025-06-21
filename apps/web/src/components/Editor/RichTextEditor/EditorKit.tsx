@@ -17,6 +17,12 @@ import { DateKit } from "./plugins/Kit/DateKit";
 import { LinkKit } from "./plugins/Kit/LinkKit";
 import { MentionKit } from "./plugins/Kit/MentionKit";
 import { FontKit } from "./plugins/Kit/FontKit";
+import { ListKit } from "./plugins/Kit/ListKit";
+import { AlignKit } from "./plugins/Kit/AlignKit";
+import { LineHeightKit } from "./plugins/Kit/LineHeightKit";
+import { DiscussionKit } from "./plugins/Kit/DiscussionKit";
+import { CommentKit } from "./plugins/Kit/CommentKit";
+import { SuggestionKit } from "./plugins/Kit/SuggestionKit";
 
 const EditorKit = [
   // AI
@@ -46,8 +52,14 @@ const EditorKit = [
   ...FontKit,
 
   /** BlockStyle **/
+  ...ListKit,
+  ...AlignKit,
+  ...LineHeightKit,
 
   /** Collaboration **/
+  ...DiscussionKit,
+  ...CommentKit,
+  ...SuggestionKit,
 
   /** Editing **/
 

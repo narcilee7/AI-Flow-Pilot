@@ -1,70 +1,70 @@
-'use client'
+'use client';
 
-import { ExtendConfig, Path } from "platejs"
+import type { ExtendConfig, Path } from 'platejs';
 
 import {
   type BaseCommentConfig,
   BaseCommentPlugin,
   getDraftCommentKey,
-} from '@platejs/comment'
-import { toTPlatePlugin } from "platejs/react"
-import { isSlateString } from "platejs"
-import { CommentLeaf } from "../../SubComponents/Comment/CommentLeafNode"
+} from '@platejs/comment';
+import { isSlateString } from 'platejs';
+import { toTPlatePlugin } from 'platejs/react';
+import { CommentLeaf } from '../../SubComponents/Comment/CommentLeafNode';
 
 type CommentConfig = ExtendConfig<
   BaseCommentConfig,
   {
     activeId: string | null;
     commentingBlock: Path | null;
-    hotKey: string[];
+    hotkey: string[];
     hoverId: string | null;
-    uniquePathMap: Map<Path, string>;
+    uniquePathMap: Map<string, Path>;
   }
->
+>;
 
-const commentPlugin = toTPlatePlugin<CommentConfig>(BaseCommentPlugin, {
+export const commentPlugin = toTPlatePlugin<CommentConfig>(BaseCommentPlugin, {
   handlers: {
     onClick: ({ api, event, setOption, type }) => {
-      let leaf = event.target as HTMLElement
-      let isSet = false
+      let leaf = event.target as HTMLElement;
+      let isSet = false;
 
-      const unSetActiveSuggestion = () => {
-        setOption('activeId', null)
-        isSet = true
-      }
+      const unsetActiveSuggestion = () => {
+        setOption('activeId', null);
+        isSet = true;
+      };
 
-      if (!isSlateString(leaf)) unSetActiveSuggestion()
+      if (!isSlateString(leaf)) unsetActiveSuggestion();
 
       while (leaf.parentElement) {
         if (leaf.classList.contains(`slate-${type}`)) {
-          const commentsEntry = api.comment!.node()
+          const commentsEntry = api.comment!.node();
 
           if (!commentsEntry) {
-            unSetActiveSuggestion()
+            unsetActiveSuggestion();
 
-            break
+            break;
           }
 
-          const id = api.comment!.nodeId(commentsEntry[0])
+          const id = api.comment!.nodeId(commentsEntry[0]);
 
-          setOption('activeId', id ?? null)
+          setOption('activeId', id ?? null);
+          isSet = true;
 
-          isSet = true
-          break
+          break;
         }
 
-        leaf = leaf.parentElement
+        leaf = leaf.parentElement;
       }
 
-      if (!isSet) unSetActiveSuggestion()
-    }
+      if (!isSet) unsetActiveSuggestion();
+    },
   },
   options: {
     activeId: null,
     commentingBlock: null,
     hoverId: null,
     uniquePathMap: new Map(),
-  }
+  },
 })
   .extendTransforms(
     ({
@@ -76,12 +76,14 @@ const commentPlugin = toTPlatePlugin<CommentConfig>(BaseCommentPlugin, {
     }) => ({
       setDraft: () => {
         if (editor.api.isCollapsed()) {
-          editor.tf.select(editor.api.block()![1])
+          editor.tf.select(editor.api.block()![1]);
         }
-        setDraft()
-        editor.tf.collapse()
-        setOption('activeId', getDraftCommentKey())
-        setOption('commentingBlock', editor.selection!.focus.path.slice(0, 1))
+
+        setDraft();
+
+        editor.tf.collapse();
+        setOption('activeId', getDraftCommentKey());
+        setOption('commentingBlock', editor.selection!.focus.path.slice(0, 1));
       },
     })
   )
@@ -90,8 +92,6 @@ const commentPlugin = toTPlatePlugin<CommentConfig>(BaseCommentPlugin, {
     shortcuts: {
       setDraft: { keys: 'mod+shift+m' },
     },
-  })
+  });
 
-export {
-  commentPlugin
-}
+export const CommentKit = [commentPlugin.withComponent(CommentLeaf)];

@@ -9,7 +9,7 @@ import { getCommentCount } from '@platejs/comment'
 import { PlateLeaf, useEditorPlugin, usePluginOption } from 'platejs/react'
 
 import { cn } from '@/utils/styleHelper'
-import { commentPlugin } from '../../plugins/Kit/CommentKit'
+import { commentPlugin } from '../../plugins/Comment/CommentPlugin'
 
 export function CommentLeaf(props: PlateLeafProps<TCommentText>) {
   const { children, leaf } = props
