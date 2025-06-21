@@ -90,7 +90,7 @@ const EditorKit = [
   // 块占位符
   ...BlockPlaceHolderKit,
   // 固定工具栏
-  // ...FixedToolBarKit,
+  ...FixedToolBarKit,
 	// 浮动工具栏
 	...FloatingToolbarKit,
 ]

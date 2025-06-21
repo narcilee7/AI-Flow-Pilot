@@ -65,102 +65,101 @@ export function FixedToolbarButtons() {
     <div className="flex w-full">
       {!readOnly && (
         <>
-          {/* 历史记录 */}
           <ToolbarGroup>
             <UndoToolbarButton />
             <RedoToolbarButton />
           </ToolbarGroup>
-          {/* AI 工具 */}
-          {/*<ToolbarGroup>*/}
-          {/*  <AIToolbarButton tooltip="AI commands">*/}
-          {/*    <WandSparklesIcon />*/}
-          {/*  </AIToolbarButton>*/}
-          {/*</ToolbarGroup>*/}
 
-          {/* 导入 导出 */}
+          <ToolbarGroup>
+            <AIToolbarButton tooltip="AI commands">
+              <WandSparklesIcon />
+            </AIToolbarButton>
+          </ToolbarGroup>
+
           <ToolbarGroup>
             <ExportToolbarButton>
               <ArrowUpToLineIcon />
-            </ExportToolbarButton >
+            </ExportToolbarButton>
 
             <ImportToolbarButton />
           </ToolbarGroup>
 
-          {/*<ToolbarGroup>*/}
-          {/*  <InsertToolbarButton />*/}
-          {/*  <TurnInfoToolbarButton />*/}
-          {/*  <FontSizeToolbarButton />*/}
-          {/*</ToolbarGroup>*/}
+          <ToolbarGroup>
+            <InsertToolbarButton />
+            <TurnInfoToolbarButton />
+            <FontSizeToolbarButton />
+          </ToolbarGroup>
 
-          {/*<ToolbarGroup>*/}
-          {/*  <MarkToolbarButton nodeType={KEYS.bold} tooltip="Bold (⌘+B)">*/}
-          {/*    <BoldIcon />*/}
-          {/*  </MarkToolbarButton>*/}
+          <ToolbarGroup>
+            <MarkToolbarButton nodeType={KEYS.bold} tooltip="Bold (⌘+B)">
+              <BoldIcon />
+            </MarkToolbarButton>
 
-          {/*  <MarkToolbarButton nodeType={KEYS.italic} tooltip="Italic (⌘+I)">*/}
-          {/*    <ItalicIcon />*/}
-          {/*  </MarkToolbarButton>*/}
+            <MarkToolbarButton nodeType={KEYS.italic} tooltip="Italic (⌘+I)">
+              <ItalicIcon />
+            </MarkToolbarButton>
 
-          {/*  <MarkToolbarButton*/}
-          {/*    nodeType={KEYS.underline}*/}
-          {/*    tooltip="Underline (⌘+U)"*/}
-          {/*  >*/}
-          {/*    <UnderlineIcon />*/}
-          {/*  </MarkToolbarButton>*/}
+            <MarkToolbarButton
+              nodeType={KEYS.underline}
+              tooltip="Underline (⌘+U)"
+            >
+              <UnderlineIcon />
+            </MarkToolbarButton>
 
-          {/*  <MarkToolbarButton*/}
-          {/*    nodeType={KEYS.strikethrough}*/}
-          {/*    tooltip="Strikethrough (⌘+⇧+M)"*/}
-          {/*  >*/}
-          {/*    <StrikethroughIcon />*/}
-          {/*  </MarkToolbarButton>*/}
+            <MarkToolbarButton
+              nodeType={KEYS.strikethrough}
+              tooltip="Strikethrough (⌘+⇧+M)"
+            >
+              <StrikethroughIcon />
+            </MarkToolbarButton>
 
-          {/*  <MarkToolbarButton nodeType={KEYS.code} tooltip="Code (⌘+E)">*/}
-          {/*    <Code2Icon />*/}
-          {/*  </MarkToolbarButton>*/}
+            <MarkToolbarButton nodeType={KEYS.code} tooltip="Code (⌘+E)">
+              <Code2Icon />
+            </MarkToolbarButton>
 
-          {/*  <FontColorToolbarButton nodeType={KEYS.color} tooltip="Text color">*/}
-          {/*    <BaselineIcon />*/}
-          {/*  </FontColorToolbarButton>*/}
+            <FontColorToolbarButton nodeType={KEYS.color} tooltip="Text color">
+              <BaselineIcon />
+            </FontColorToolbarButton>
 
-          {/*  <FontColorToolbarButton*/}
-          {/*    nodeType={KEYS.backgroundColor}*/}
-          {/*    tooltip="Background color"*/}
-          {/*  >*/}
-          {/*    <PaintBucketIcon />*/}
-          {/*  </FontColorToolbarButton>*/}
-          {/*</ToolbarGroup>*/}
+            <FontColorToolbarButton
+              nodeType={KEYS.backgroundColor}
+              tooltip="Background color"
+            >
+              <PaintBucketIcon />
+            </FontColorToolbarButton>
+          </ToolbarGroup>
 
-          {/*<ToolbarGroup>*/}
-          {/*  <AlignToolbarButton />*/}
-          {/*  <NumberedListToolbarButton />*/}
-          {/*  <BulletedListToolbarButton />*/}
-          {/*  <TodoListToolbarButton />*/}
-          {/*  <ToggleToolbarButton />*/}
-          {/*</ToolbarGroup>*/}
+          <ToolbarGroup>
+            <AlignToolbarButton />
 
-          {/*<ToolbarGroup>*/}
-          {/*  <LinkToolbarButton />*/}
-          {/*  <TableToolbarButton />*/}
-          {/*  <EmojiToolbarButton />*/}
-          {/*</ToolbarGroup>*/}
+            <NumberedListToolbarButton />
+            <BulletedListToolbarButton />
+            <TodoListToolbarButton />
+            <ToggleToolbarButton />
+          </ToolbarGroup>
 
-          {/*<ToolbarGroup>*/}
-          {/*  <MediaToolbarButton nodeType={KEYS.img} />*/}
-          {/*  <MediaToolbarButton nodeType={KEYS.video} />*/}
-          {/*  <MediaToolbarButton nodeType={KEYS.audio} />*/}
-          {/*  <MediaToolbarButton nodeType={KEYS.file} />*/}
-          {/*</ToolbarGroup>*/}
+          <ToolbarGroup>
+            <LinkToolbarButton />
+            <TableToolbarButton />
+            <EmojiToolbarButton />
+          </ToolbarGroup>
 
-          {/*<ToolbarGroup>*/}
-          {/*  <LineHeightToolbarButton />*/}
-          {/*  <OutdentToolbarButton />*/}
-          {/*  <IndentToolbarButton />*/}
-          {/*</ToolbarGroup>*/}
-          {/* 更多 */}
-          {/*<ToolbarGroup>*/}
-          {/*  <MoreToolbarButton />*/}
-          {/*</ToolbarGroup>*/}
+          <ToolbarGroup>
+            <MediaToolbarButton nodeType={KEYS.img} />
+            <MediaToolbarButton nodeType={KEYS.video} />
+            <MediaToolbarButton nodeType={KEYS.audio} />
+            <MediaToolbarButton nodeType={KEYS.file} />
+          </ToolbarGroup>
+
+          <ToolbarGroup>
+            <LineHeightToolbarButton />
+            <OutdentToolbarButton />
+            <IndentToolbarButton />
+          </ToolbarGroup>
+
+          <ToolbarGroup>
+            <MoreToolbarButton />
+          </ToolbarGroup>
         </>
       )}
 

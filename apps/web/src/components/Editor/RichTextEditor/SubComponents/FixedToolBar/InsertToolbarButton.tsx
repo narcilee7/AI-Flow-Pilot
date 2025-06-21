@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import * as React from 'react'
+import * as React from 'react';
 
-import type { DropdownMenuProps } from '@radix-ui/react-dropdown-menu'
+import type { DropdownMenuProps } from '@radix-ui/react-dropdown-menu';
 
 import {
   CalendarIcon,
@@ -13,9 +13,6 @@ import {
   Heading1Icon,
   Heading2Icon,
   Heading3Icon,
-  Heading4Icon,
-  Heading5Icon,
-  Heading6Icon,
   ImageIcon,
   Link2Icon,
   ListIcon,
@@ -28,25 +25,23 @@ import {
   SquareIcon,
   TableIcon,
   TableOfContentsIcon,
-} from 'lucide-react'
-import { KEYS } from 'platejs'
-import { useEditorRef, type PlateEditor } from 'platejs/react'
+} from 'lucide-react';
+import { KEYS } from 'platejs';
+import { type PlateEditor, useEditorRef } from 'platejs/react';
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/DropdownMenu'
-import { ToolbarButton, ToolbarMenuGroup, ToolbarToggleGroup } from '@/components/ToolBar'
-import { insertBlock, insertInlineElement } from '../Transforms'
+} from '@/components/DropdownMenu';
+import { insertBlock, insertInlineElement } from '../Transforms';
+import { ToolbarButton, ToolbarMenuGroup } from '@/components/ToolBar';
 
-type InsertToolbarButtonProps = React.ComponentProps<typeof DropdownMenu>
-
-interface Group {
+type Group = {
   group: string;
   items: Item[];
-}
+};
 
 interface Item {
   icon: React.ReactNode;
@@ -55,8 +50,6 @@ interface Item {
   focusEditor?: boolean;
   label?: string;
 }
-
-// 可选择下拉按钮族
 
 const groups: Group[] = [
   {
@@ -81,21 +74,6 @@ const groups: Group[] = [
         icon: <Heading3Icon />,
         label: 'Heading 3',
         value: 'h3',
-      },
-      {
-        icon: <Heading4Icon />,
-        label: 'Heading 4',
-        value: 'h4',
-      },
-      {
-        icon: <Heading5Icon />,
-        label: 'Heading 5',
-        value: 'h5',
-      },
-      {
-        icon: <Heading6Icon />,
-        label: 'Heading 6',
-        value: 'h6',
       },
       {
         icon: <TableIcon />,
@@ -229,19 +207,22 @@ const groups: Group[] = [
   },
 ];
 
-
 export function InsertToolbarButton(props: DropdownMenuProps) {
-  const editorRef= useEditorRef()
-  const [open, setOpen] = React.useState(false)
+  const editor = useEditorRef();
+  const [open, setOpen] = React.useState(false);
 
   return (
     <DropdownMenu open={open} onOpenChange={setOpen} modal={false} {...props}>
       <DropdownMenuTrigger asChild>
-        <ToolbarButton pressed={open} tooltip='Insert' isDropdown>
+        <ToolbarButton pressed={open} tooltip="Insert" isDropdown>
           <PlusIcon />
         </ToolbarButton>
+      </DropdownMenuTrigger>
 
-        <DropdownMenuContent className='flex max-h-[500px] min-w-0 flex-col overflow-y-auto' align='start'>
+      <DropdownMenuContent
+        className="flex max-h-[500px] min-w-0 flex-col overflow-y-auto"
+        align="start"
+      >
         {groups.map(({ group, items: nestedItems }) => (
           <ToolbarMenuGroup key={group} label={group}>
             {nestedItems.map(({ icon, label, value, onSelect }) => (
@@ -249,8 +230,8 @@ export function InsertToolbarButton(props: DropdownMenuProps) {
                 key={value}
                 className="min-w-[180px]"
                 onSelect={() => {
-                  onSelect(editorRef, value);
-                  editorRef.tf.focus();
+                  onSelect(editor, value);
+                  editor.tf.focus();
                 }}
               >
                 {icon}
@@ -258,9 +239,8 @@ export function InsertToolbarButton(props: DropdownMenuProps) {
               </DropdownMenuItem>
             ))}
           </ToolbarMenuGroup>
-        ))} 
-        </DropdownMenuContent>
-      </DropdownMenuTrigger>
+        ))}
+      </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }

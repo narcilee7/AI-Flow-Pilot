@@ -1,129 +1,112 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { MarkdownPlugin } from '@platejs/markdown'
-import { ArrowDownToLineIcon } from 'lucide-react'
-import { createSlateEditor, serializeHtml } from 'platejs'
-import { useEditorRef } from 'platejs/react'
+import * as React from 'react';
+
+import type { DropdownMenuProps } from '@radix-ui/react-dropdown-menu';
+
+import { MarkdownPlugin } from '@platejs/markdown';
+import { ArrowDownToLineIcon } from 'lucide-react';
+import { createSlateEditor, serializeHtml } from 'platejs';
+import { useEditorRef } from 'platejs/react';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuTrigger
-} from '@/components/DropdownMenu'
-import { BaseEditorKit } from '@/components/Editor/RichTextEditor/plugins/Kit/BaseEditorKit'
-import { ToolbarButton } from '@/components/ToolBar'
-import { EditorStatic } from '../EditorStatic'
+  DropdownMenuTrigger,
+} from '@/components/DropdownMenu';
+import { BaseEditorKit } from '../../plugins/Kit/BaseEditorKit';
+import { EditorStatic } from '../EditorStatic';
+// import { ToolbarButton } from './toolbar';
+import { ToolbarButton } from '@/components/ToolBar';
 
-// 导出工具栏按钮
-type ExportToolbarButtonProps = React.ComponentProps<typeof DropdownMenu>
+const siteUrl = 'https://platejs.org';
 
-const ExportToolbarButton = (props: ExportToolbarButtonProps) => {
-  const editorRef = useEditorRef()
-  const [open, setOpen] = React.useState(false)
-
-  const handleOpen = () => {
-    // debugger
-    setOpen(true)
-    // debugger
-  }
+export function ExportToolbarButton(props: DropdownMenuProps) {
+  const editor = useEditorRef();
+  const [open, setOpen] = React.useState(false);
 
   const getCanvas = async () => {
-    const { default: html2canvas } = await import('html2canvas-pro')
+    const { default: html2canvas } = await import('html2canvas-pro');
 
-    const style = document.createElement("style")
+    const style = document.createElement('style');
+    document.head.append(style);
 
-    document.head.append(style)
-
-    const canvas = await html2canvas(editorRef.api.toDOMNode(editorRef)!, {
+    const canvas = await html2canvas(editor.api.toDOMNode(editor)!, {
       onclone: (document: Document) => {
-        // 编辑元素
         const editorElement = document.querySelector(
           '[contenteditable="true"]'
-        )
+        );
         if (editorElement) {
           Array.from(editorElement.querySelectorAll('*')).forEach((element) => {
             const existingStyle = element.getAttribute('style') || '';
             element.setAttribute(
               'style',
               `${existingStyle}; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important`
-            )
-          })
+            );
+          });
         }
-      }
-    })
+      },
+    });
+    style.remove();
 
-    style.remove()
-
-    return canvas
-  }
+    return canvas;
+  };
 
   const downloadFile = async (url: string, filename: string) => {
-    const response = await fetch(url)
+    const response = await fetch(url);
 
-    const blob = await response.blob()
-    const blobUrl = window.URL.createObjectURL(blob)
+    const blob = await response.blob();
+    const blobUrl = window.URL.createObjectURL(blob);
 
-    const link = document.createElement('a')
-    link.href = blobUrl
-    link.download = filename
+    const link = document.createElement('a');
+    link.href = blobUrl;
+    link.download = filename;
+    document.body.append(link);
+    link.click();
+    link.remove();
 
-    document.body.appendChild(link)
-
-    link.click()
-    link.remove()
-
-    window.URL.revokeObjectURL(blobUrl)
-  }
+    // Clean up the blob URL
+    window.URL.revokeObjectURL(blobUrl);
+  };
 
   const exportToPdf = async () => {
-    const canvas = await getCanvas()
+    const canvas = await getCanvas();
 
-    const PDFLib = await import('pdf-lib')
-    const pdfDoc = await PDFLib.PDFDocument.create()
-    // 构建页面，设置页面大小
-    const page = pdfDoc.addPage([canvas.width, canvas.height])
-    // 构建嵌入图片
-    const imageEmbed = await pdfDoc.embedPng(canvas.toDataURL('PNG'))
-
-    // 设置图片大小
-    const { height, width } = imageEmbed.scale(1)
-    // 将图片绘制到pdf页面上
+    const PDFLib = await import('pdf-lib');
+    const pdfDoc = await PDFLib.PDFDocument.create();
+    const page = pdfDoc.addPage([canvas.width, canvas.height]);
+    const imageEmbed = await pdfDoc.embedPng(canvas.toDataURL('PNG'));
+    const { height, width } = imageEmbed.scale(1);
     page.drawImage(imageEmbed, {
       height,
       width,
       x: 0,
-      y: 0
-    })
+      y: 0,
+    });
+    const pdfBase64 = await pdfDoc.saveAsBase64({ dataUri: true });
 
-    // 将pdf转换为base64
-    const pdfBase64 = await pdfDoc.saveAsBase64({ dataUri: true })
-
-    await downloadFile(pdfBase64, 'ai_job_pilot_export.pdf')
-  }
+    await downloadFile(pdfBase64, 'plate.pdf');
+  };
 
   const exportToImage = async () => {
-    const canvas = await getCanvas()
+    const canvas = await getCanvas();
+    await downloadFile(canvas.toDataURL('image/png'), 'plate.png');
+  };
 
-    const image = await canvas.toDataURL('image/png')
-
-    await downloadFile(image, 'ai_job_pilot_export.png')
-  }
-
-  const exportToHTML = async () => {
-    // 创建静态编辑器
+  const exportToHtml = async () => {
     const editorStatic = createSlateEditor({
       plugins: BaseEditorKit,
-      value: editorRef.children
-    })
+      value: editor.children,
+    });
 
-    // 将静态编辑器转换为html
     const editorHtml = await serializeHtml(editorStatic, {
       editorComponent: EditorStatic,
       props: { style: { padding: '0 calc(50% - 350px)', paddingBottom: '' } },
-    })
+    });
 
+    const tailwindCss = `<link rel="stylesheet" href="${siteUrl}/tailwind.css">`;
     const katexCss = `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.18/dist/katex.css" integrity="sha384-9PvLvaiSKCPkFKB1ZsEoTjgnJn+O3KvEwtsz37/XrkYft3DTk2gHdYvd9oWgW3tV" crossorigin="anonymous">`;
 
     const html = `<!DOCTYPE html>
@@ -138,6 +121,7 @@ const ExportToolbarButton = (props: ExportToolbarButtonProps) => {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=JetBrains+Mono:wght@400..700&display=swap"
           rel="stylesheet"
         />
+        ${tailwindCss}
         ${katexCss}
         <style>
           :root {
@@ -153,18 +137,17 @@ const ExportToolbarButton = (props: ExportToolbarButtonProps) => {
 
     const url = `data:text/html;charset=utf-8,${encodeURIComponent(html)}`;
 
-    await downloadFile(url, 'ai_job_pilot_export.html');
-  }
+    await downloadFile(url, 'plate.html');
+  };
 
   const exportToMarkdown = async () => {
-    const md = editorRef.getApi(MarkdownPlugin).markdown.serialize()
-    const url = `data:text/markdown;charset=utf-8,${encodeURIComponent(md)}`
-
-    await downloadFile(url, 'ai_job_pilot_export.md')
-  }
+    const md = editor.getApi(MarkdownPlugin).markdown.serialize();
+    const url = `data:text/markdown;charset=utf-8,${encodeURIComponent(md)}`;
+    await downloadFile(url, 'plate.md');
+  };
 
   return (
-    <DropdownMenu open={open} onOpenChange={handleOpen} modal={false} {...props}>
+    <DropdownMenu open={open} onOpenChange={setOpen} modal={false} {...props}>
       <DropdownMenuTrigger asChild>
         <ToolbarButton pressed={open} tooltip="Export" isDropdown>
           <ArrowDownToLineIcon className="size-4" />
@@ -173,24 +156,20 @@ const ExportToolbarButton = (props: ExportToolbarButtonProps) => {
 
       <DropdownMenuContent align="start">
         <DropdownMenuGroup>
-          <DropdownMenuItem onSelect={exportToHTML}>
-            导入为HTML
+          <DropdownMenuItem onSelect={exportToHtml}>
+            Export as HTML
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={exportToPdf}>
-            导入为PDF
+            Export as PDF
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={exportToImage}>
-            导入为图片
+            Export as Image
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={exportToMarkdown}>
-            导入为Markdown
+            Export as Markdown
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
-}
-
-export {
-  ExportToolbarButton
+  );
 }

@@ -2,12 +2,11 @@ import { cn } from "@/utils/styleHelper";
 import { PlateContainer } from "platejs/react";
 import { VariantProps } from "tailwind-variants";
 import { editorContainerVariants } from "./styles/EditorContainerVariants";
+import React from "react";
 
-export function EditorContainer({
-  className,
-  variant,
-  ...props
-}: React.ComponentProps<'div'> & VariantProps<typeof editorContainerVariants>) {
+type EditorContainerProps = React.ComponentProps<'div'> & VariantProps<typeof editorContainerVariants>
+
+const EditorContainer = ({ className, variant, ...props }: EditorContainerProps) => {
   return (
     <PlateContainer
       className={cn(
@@ -19,3 +18,5 @@ export function EditorContainer({
     />
   );
 }
+
+export default EditorContainer;

@@ -1,8 +1,8 @@
 'use client'
 
 import type { Value } from 'platejs'
-import { Plate, usePlateEditor } from 'platejs/react'
-import EditorContainer from './EditorContaner'
+import { Plate, usePlateEditor } from 'platejs/react';
+import EditorContainer from './EditorContainer';
 import Editor from './Editor'
 import EditorKit from './EditorKit'
 
@@ -25,10 +25,6 @@ const RichTextEditor = (props: RichTextEditorProps) => {
       value,
     }
   );
-
-  const handleContentChange = ({ value }: { value: Value }) => {
-    onChange(value);
-  }
 
   return (
     <Plate editor={editor}>
