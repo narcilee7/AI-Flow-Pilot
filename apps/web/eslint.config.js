@@ -1,7 +1,7 @@
-import { nextJsConfig } from '@jobPilot/eslint-config'
+import { reactInternal} from "@jobPilot/eslint-config";
 
 export default {
-	...nextJsConfig,
+	...reactInternal,
   rules: {
     'react/jsx-key-props': 'off',
   }

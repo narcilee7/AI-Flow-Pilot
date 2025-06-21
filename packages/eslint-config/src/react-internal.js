@@ -1,26 +1,31 @@
-const base = require("base")
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import base from "./base";
 
-module.exports = {
+const reactConfig = [
   ...base,
-  env: {
-    ...base.env,
-    browser: true,
-  },
-  plugins: [...(base.plugins || []), "react", "react-hooks"],
-  extends: [
-    ...(base.extends || []),
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended",
-  ],
-  rules: {
-    ...base.rules,
-    "react/react-in-jsx-scope": "off",
-    // React 专有规则覆盖
-  },
-  settings: {
-    react: {
-      version: "detect",
+  {
+    plugins: {
+      react,
+      "react-hooks": reactHooks,
+    },
+    languageOptions: {
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      globals: {
+        React: "readonly",
+      },
+    },
+    rules: {
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
     },
   },
-};
+];
+
+export default reactConfig;

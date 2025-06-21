@@ -1,19 +1,20 @@
-const base = require('base')
+import nodePlugin from "eslint-plugin-n";
+import base from "./base";
 
-module.exports = {
+const nodeConfig = [
   ...base,
-  env: {
-    node: true,
-    es2021: true,
+  {
+    plugins: {
+      n: nodePlugin,
+    },
+    languageOptions: {
+      ecmaVersion: "latest",
+    },
+    rules: {
+      "n/no-missing-import": "error",
+      "n/no-unsupported-features/es-syntax": "off",
+    },
   },
-  plugins: base.plugins,
-  extends: [
-    ...(base.extends || []),
-    "plugin:node/recommended",
-    "plugin:prettier/recommended",
-  ],
-  rules: {
-    ...base.rules,
-    // Node 相关规则覆盖
-  },
-};
+];
+
+export default nodeConfig;

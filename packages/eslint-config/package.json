@@ -1,37 +1,48 @@
 {
   "name": "@jobPilot/eslint-config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
-  "type": "commonjs",
-  "main": "./dist/index.js",
+  "type": "module",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "files": [
-    "dist/**"
-  ],
-  "scripts": {
-    "build": "tsup src/*.js --format cjs,esm --dts",
-    "dev": "tsup src/*.js --format cjs,esm --dts --watch"
-  },
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "require": "./dist/index.cjs"
     },
-    "./base": {
-      "import": "./dist/base.mjs",
-      "require": "./dist/base.js"
-    },
-    "./reactInternal": {
+    "./react": {
       "import": "./dist/react-internal.mjs",
-      "require": "./dist/react-internal.js"
+      "require": "./dist/react-internal.cjs"
     },
-    "./vueInternal": {
+    "./vue": {
       "import": "./dist/vue-internal.mjs",
-      "require": "./dist/vue-internal.js"
+      "require": "./dist/vue-internal.cjs"
     },
-    "./nodeInternal": {
+    "./node": {
       "import": "./dist/node-internal.mjs",
-      "require": "./dist/node-internal.js"
+      "require": "./dist/node-internal.cjs"
     }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "eslint": "^9.29.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "rollup": "^4.16.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.34.1",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint-plugin-n": "^17.20.0",
+    "eslint-plugin-vue": "^10.2.0"
   }
 }

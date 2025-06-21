@@ -1,19 +1,24 @@
-const base = require("./base");
+import vue from "eslint-plugin-vue";
+import base from "./base";
 
-module.exports = {
+const vueConfig = [
   ...base,
-  env: {
-    ...base.env,
-    browser: true,
+  {
+    plugins: {
+      vue,
+    },
+    languageOptions: {
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+    rules: {
+      "vue/no-unused-components": "warn",
+      "vue/no-multiple-template-root": "off",
+    },
   },
-  plugins: [...(base.plugins || []), "vue"],
-  extends: [
-    ...(base.extends || []),
-    "plugin:vue/vue3-recommended",
-    "plugin:prettier/recommended",
-  ],
-  rules: {
-    ...base.rules,
-    // Vue 相关规则覆盖
-  },
-};
+];
+
+export default vueConfig;
