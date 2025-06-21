@@ -15,6 +15,8 @@ import { ColumnKit } from "./plugins/Kit/ColumnKit";
 import { MathKit } from "./plugins/Kit/MathKit";
 import { DateKit } from "./plugins/Kit/DateKit";
 import { LinkKit } from "./plugins/Kit/LinkKit";
+import { MentionKit } from "./plugins/Kit/MentionKit";
+import { FontKit } from "./plugins/Kit/FontKit";
 
 const EditorKit = [
   // AI
@@ -32,7 +34,6 @@ const EditorKit = [
   ...TocKit,
   // 多媒体套件
   ...MediaKit,
-  // 
   ...CalloutKit,
   ...ColumnKit,
   ...MathKit,
@@ -42,6 +43,7 @@ const EditorKit = [
 
   /** Mark **/
   ...BasicMarksKit,
+  ...FontKit,
 
   /** BlockStyle **/
 
