@@ -1,8 +1,10 @@
-import { reactInternal} from "@jobPilot/eslint-config";
+import { reactInternal } from "@jobPilot/eslint-config";
 
-export default {
-	...reactInternal,
-  rules: {
-    'react/jsx-key-props': 'off',
-  }
-}
+export default [
+  ...reactInternal,    // 解构展开已有数组
+  {
+    rules: {
+      'react/jsx-key-props': 'off',
+    },
+  },
+];

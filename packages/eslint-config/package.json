@@ -1,6 +1,6 @@
 {
   "name": "@jobPilot/eslint-config",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "type": "module",
   "main": "./dist/index.cjs",
@@ -42,6 +42,7 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^8.34.1",
     "@typescript-eslint/parser": "^7.18.0",
+    "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-n": "^17.20.0",
     "eslint-plugin-vue": "^10.2.0"
   }
