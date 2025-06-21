@@ -31,13 +31,12 @@ const RichTextEditor = (props: RichTextEditorProps) => {
   }
 
   return (
-    <Plate editor={editor} onChange={handleContentChange}>
-      <EditorContainer className='w-5/6 h-full p-10'>
-        <Editor variant="default"
-          placeholder="Enter some text..."
-        />
+    <Plate editor={editor}>
+      <EditorContainer>
+        <Editor variant="demo" />
       </EditorContainer>
-  </Plate>
+      {/* <SettingsDIalog /> */}
+    </Plate>
   )
 }
 

@@ -4,7 +4,7 @@ import { EditorType, FormData, MarkdownData, RichTextData, CanvasData } from '@/
 
 export function useEditor() {
   const [activeEditor, setActiveEditor] = useState<EditorType>('form');
-  
+
   // Mock data for each editor
   const [formData, setFormData] = useState<FormData>({
     fields: [

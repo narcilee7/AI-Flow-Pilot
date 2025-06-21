@@ -10,16 +10,12 @@ const Editor = React.forwardRef<HTMLDivElement, RichContextEditorProps>(
     return (
       <PlateContent
         ref={ref}
-        // className={cn(
-        //   editorVariants({
-        //     disabled, 
-        //     focused,
-        //     variant,
-        //   }),
-        //   className
-        // )}
         className={cn(
-          'relative overflow-x-hidden break-words select-text w-full h-full border-none bg-transparent text-sm focus:outline-none rounded-e-md ring-offset-background',
+          editorVariants({
+            disabled, 
+            focused,
+            variant,
+          }),
           className
         )}
         disabled={disabled}

@@ -23,6 +23,12 @@ const ExportToolbarButton = (props: ExportToolbarButtonProps) => {
   const editorRef = useEditorRef()
   const [open, setOpen] = React.useState(false)
 
+  const handleOpen = () => {
+    // debugger
+    setOpen(true)
+    // debugger
+  }
+
   const getCanvas = async () => {
     const { default: html2canvas } = await import('html2canvas-pro')
 
@@ -158,7 +164,7 @@ const ExportToolbarButton = (props: ExportToolbarButtonProps) => {
   }
 
   return (
-    <DropdownMenu open={open} onOpenChange={setOpen} modal={false} {...props}>
+    <DropdownMenu open={open} onOpenChange={handleOpen} modal={false} {...props}>
       <DropdownMenuTrigger asChild>
         <ToolbarButton pressed={open} tooltip="Export" isDropdown>
           <ArrowDownToLineIcon className="size-4" />

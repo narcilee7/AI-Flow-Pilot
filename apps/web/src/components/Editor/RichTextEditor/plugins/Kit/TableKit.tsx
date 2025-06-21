@@ -19,4 +19,3 @@ export const TableKit = [
 	TableCellPlugin.withComponent(TableCellElement),
 	TableCellHeaderPlugin.withComponent(TableCellHeaderElement)
 ]
-

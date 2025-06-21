@@ -13,7 +13,7 @@ import { TableKit } from '@/components/Editor/RichTextEditor/plugins/Kit/TableKi
 const EditorKit = [
   // AI
 
-  // Elements
+  /** Elements **/
   // 基础块套件
   ...BasicBlockKit,
   // 代码块套件
@@ -24,32 +24,36 @@ const EditorKit = [
   ...ToggleKit,
   // 目录套件
   ...TocKit,
-  // 媒体套件
   // ...MediaKit,
-  // 提示框套件
   // ...CalloutKit,
+  // ...ColumnKit,
+  // ...MathKit,
+  // ...DateKit,
+  // ...LinkKit,
+  // ...MentionKit,
 
-  // Mark
+  /** Mark **/
   ...BasicMarksKit,
 
-  // BlockStyle
+  /** BlockStyle **/
 
-  // Collaboration
+  /** Collaboration **/
 
-  // Editing
+  /** Editing **/
 
-	// Parsers
+	/** Parsers **/
 	// Docx解析
 	...DocxKit,
+  // Markdown解析
 	...MarkdownKit,
 
-  // UI
+  /** UI **/
   // 块占位符
   ...BlockPlaceHolderKit,
   // 固定工具栏
-  ...FixedToolBarKit,
+  // ...FixedToolBarKit,
 	// 浮动工具栏
-	...FloatingToolbarKit,
+	// ...FloatingToolbarKit,
 ]
 
 export default EditorKit

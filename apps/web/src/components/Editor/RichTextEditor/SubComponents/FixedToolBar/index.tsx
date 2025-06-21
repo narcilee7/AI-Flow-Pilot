@@ -2,11 +2,12 @@
 
 import { Toolbar } from "@/components/ToolBar"
 import { cn } from "@/utils/styleHelper"
+import React from "react";
 
 export function FixedToolBar(props: React.ComponentProps<typeof Toolbar>) {
   return (
-    <Toolbar 
-      {...props} 
+    <Toolbar
+      {...props}
       className={cn(
         'sticky top-0 left-0 z-100',
         'scrollbar-hide w-full justify-between overflow-x-auto',

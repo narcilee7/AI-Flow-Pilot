@@ -1,33 +1,65 @@
-'use client'
+'use client';
 
-import { useEditorReadOnly } from "platejs/react"
-import { KEYS } from "platejs"
-import { ToolbarGroup } from "../../../../ToolBar"
-import { UndoToolbarButton, RedoToolbarButton } from "./History-Toolbar-Button"
-import { AIToolbarButton } from "../AI/AIToolbarButton"
-import { ArrowUpToLineIcon, BaselineIcon, BoldIcon, Code2Icon, HighlighterIcon, ItalicIcon, PaintBucketIcon, StrikethroughIcon, UnderlineIcon, WandSparklesIcon } from "lucide-react"
-import { ExportToolbarButton } from "./ExportToolbarButton"
-import { ImportToolbarButton } from "./ImportToolbarButton"
-import { InsertToolbarButton } from "./InsertToolbarButton"
-import { TurnInfoToolbarButton } from "./TurnInfoToolbarButton"
-import { FontSizeToolbarButton } from "./FontSizeToolbarButton"
-import { MarkToolbarButton } from "./MarkToolbarButton"
-import { FontColorToolbarButton } from "./FontColorToolbarButton"
-import { AlignToolbarButton } from "./AlignToolbarButton"
-import { BulletedListToolbarButton, NumberedListToolbarButton, TodoListToolbarButton } from "./ListToolbarButtons"
-import { ToggleToolbarButton } from "./ToggleToolbarButton"
-import { LinkToolbarButton } from "./LinkToolbarButton"
-import { TableToolbarButton } from "./TableToolbarButton"
-import { EmojiToolbarButton } from "./EmojiToolbarButton"
-import { MediaToolbarButton } from "./MediaToolbarButton"
-import { LineHeightToolbarButton } from "./LineHeightToolbarButton"
-import { OutdentToolbarButton, IndentToolbarButton } from "./IndentToolbarButton"
-import { MoreToolbarButton } from "./MoreToolbarButton"
-import { ModeToolbarButton } from "./ModeToolbarButton"
-import { CommentToolbarButton } from './CommentToolbarButton'
+import * as React from 'react';
 
-export function FixedToolBarButtons() {
-  const readOnly = useEditorReadOnly()
+import {
+  ArrowUpToLineIcon,
+  BaselineIcon,
+  BoldIcon,
+  Code2Icon,
+  HighlighterIcon,
+  ItalicIcon,
+  PaintBucketIcon,
+  StrikethroughIcon,
+  UnderlineIcon,
+  WandSparklesIcon,
+} from 'lucide-react';
+import { KEYS } from 'platejs';
+import { useEditorReadOnly } from 'platejs/react';
+
+import { AIToolbarButton} from "@/components/Editor/RichTextEditor/SubComponents/AI/AIToolbarButton";
+import { AlignToolbarButton} from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/AlignToolbarButton";
+import { ToolbarGroup } from "@/components/ToolBar";
+import { ModeToolbarButton } from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/ModeToolbarButton";
+import {
+  CommentToolbarButton
+} from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/CommentToolbarButton";
+import { MoreToolbarButton } from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/MoreToolbarButton";
+import {
+  IndentToolbarButton,
+  OutdentToolbarButton
+} from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/IndentToolbarButton";
+import {
+  LineHeightToolbarButton
+} from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/LineHeightToolbarButton";
+import { MediaToolbarButton } from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/MediaToolbarButton";
+import { EmojiToolbarButton } from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/EmojiToolbarButton";
+import { TableToolbarButton } from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/TableToolbarButton";
+import { LinkToolbarButton } from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/LinkToolbarButton";
+import { ToggleToolbarButton } from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/ToggleToolbarButton";
+import {
+  BulletedListToolbarButton, NumberedListToolbarButton,
+  TodoListToolbarButton
+} from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/ListToolbarButtons";
+import {
+  FontColorToolbarButton
+} from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/FontColorToolbarButton";
+import { MarkToolbarButton } from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/MarkToolbarButton";
+import { InsertToolbarButton } from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/InsertToolbarButton";
+import {
+  TurnInfoToolbarButton
+} from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/TurnInfoToolbarButton";
+import {
+  FontSizeToolbarButton
+} from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/FontSizeToolbarButton";
+import { ImportToolbarButton } from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/ImportToolbarButton";
+import {
+  RedoToolbarButton, UndoToolbarButton
+} from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/History-Toolbar-Button";
+import { ExportToolbarButton } from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/ExportToolbarButton";
+
+export function FixedToolbarButtons() {
+  const readOnly = useEditorReadOnly();
 
   return (
     <div className="flex w-full">
@@ -38,131 +70,113 @@ export function FixedToolBarButtons() {
             <UndoToolbarButton />
             <RedoToolbarButton />
           </ToolbarGroup>
+          {/* AI 工具 */}
+          {/*<ToolbarGroup>*/}
+          {/*  <AIToolbarButton tooltip="AI commands">*/}
+          {/*    <WandSparklesIcon />*/}
+          {/*  </AIToolbarButton>*/}
+          {/*</ToolbarGroup>*/}
 
-          {/* AI */}
-          <ToolbarGroup>
-            <AIToolbarButton tooltip="AI commands">
-              <WandSparklesIcon />
-            </AIToolbarButton>
-          </ToolbarGroup>
-
-          {/* 导入导出 */}
+          {/* 导入 导出 */}
           <ToolbarGroup>
             <ExportToolbarButton>
               <ArrowUpToLineIcon />
-            </ExportToolbarButton>
+            </ExportToolbarButton >
 
             <ImportToolbarButton />
           </ToolbarGroup>
 
-          {/* 插入各种元素 */}
-          <ToolbarGroup>
-            <InsertToolbarButton />
-            <TurnInfoToolbarButton />
-            {/* 字号调整 */}
-            <FontSizeToolbarButton />
-          </ToolbarGroup>
+          {/*<ToolbarGroup>*/}
+          {/*  <InsertToolbarButton />*/}
+          {/*  <TurnInfoToolbarButton />*/}
+          {/*  <FontSizeToolbarButton />*/}
+          {/*</ToolbarGroup>*/}
 
-          {/* 加粗 加斜线 下划线... */}
-          <ToolbarGroup>
-            {/* 加粗 */}
-            <MarkToolbarButton nodeType={KEYS.bold} tooltip="Bold (⌘+B)">
-              <BoldIcon />
-            </MarkToolbarButton>
-            {/* 斜体 */}
-            <MarkToolbarButton nodeType={KEYS.italic} tooltip="Italic (⌘+I)">
-              <ItalicIcon />
-            </MarkToolbarButton>
-            {/* 下划线 */}
-            <MarkToolbarButton
-              nodeType={KEYS.underline}
-              tooltip="Underline (⌘+U)"
-            >
-              <UnderlineIcon />
-            </MarkToolbarButton>
-            {/* 删除线 */}
-            <MarkToolbarButton
-              nodeType={KEYS.strikethrough}
-              tooltip="Strikethrough (⌘+⇧+M)"
-            >
-              <StrikethroughIcon />
-            </MarkToolbarButton>
-            {/* 代码块 */}
-            <MarkToolbarButton nodeType={KEYS.code} tooltip="Code (⌘+E)">
-              <Code2Icon />
-            </MarkToolbarButton>
+          {/*<ToolbarGroup>*/}
+          {/*  <MarkToolbarButton nodeType={KEYS.bold} tooltip="Bold (⌘+B)">*/}
+          {/*    <BoldIcon />*/}
+          {/*  </MarkToolbarButton>*/}
 
-            {/* 字体颜色 */}
-            <FontColorToolbarButton nodeType={KEYS.color} tooltip="Text Color">
-              <BaselineIcon />
-            </FontColorToolbarButton>
+          {/*  <MarkToolbarButton nodeType={KEYS.italic} tooltip="Italic (⌘+I)">*/}
+          {/*    <ItalicIcon />*/}
+          {/*  </MarkToolbarButton>*/}
 
-            {/* 背景颜色 */}
-            <FontColorToolbarButton
-              nodeType={KEYS.backgroundColor}
-              tooltip="Background Color"
-            >
-              <PaintBucketIcon />
-            </FontColorToolbarButton>
-          </ToolbarGroup>
+          {/*  <MarkToolbarButton*/}
+          {/*    nodeType={KEYS.underline}*/}
+          {/*    tooltip="Underline (⌘+U)"*/}
+          {/*  >*/}
+          {/*    <UnderlineIcon />*/}
+          {/*  </MarkToolbarButton>*/}
 
-          {/* 排版对齐 */}
-          <ToolbarGroup>
-            <AlignToolbarButton />
+          {/*  <MarkToolbarButton*/}
+          {/*    nodeType={KEYS.strikethrough}*/}
+          {/*    tooltip="Strikethrough (⌘+⇧+M)"*/}
+          {/*  >*/}
+          {/*    <StrikethroughIcon />*/}
+          {/*  </MarkToolbarButton>*/}
 
-            {/* 列表 */}
-            <BulletedListToolbarButton />
-            <NumberedListToolbarButton />
-            <TodoListToolbarButton />
+          {/*  <MarkToolbarButton nodeType={KEYS.code} tooltip="Code (⌘+E)">*/}
+          {/*    <Code2Icon />*/}
+          {/*  </MarkToolbarButton>*/}
 
-            {/* 折叠 */}
-            <ToggleToolbarButton />
-          </ToolbarGroup>
+          {/*  <FontColorToolbarButton nodeType={KEYS.color} tooltip="Text color">*/}
+          {/*    <BaselineIcon />*/}
+          {/*  </FontColorToolbarButton>*/}
 
-          {/* 链接 表格 emoji */}
-          <ToolbarGroup>
-            <LinkToolbarButton />
-            <TableToolbarButton />
-            <EmojiToolbarButton />
-          </ToolbarGroup>
+          {/*  <FontColorToolbarButton*/}
+          {/*    nodeType={KEYS.backgroundColor}*/}
+          {/*    tooltip="Background color"*/}
+          {/*  >*/}
+          {/*    <PaintBucketIcon />*/}
+          {/*  </FontColorToolbarButton>*/}
+          {/*</ToolbarGroup>*/}
 
-          {/* 图片 视频 音频 文件 */}
-          <ToolbarGroup>
-            <MediaToolbarButton nodeType={KEYS.img} />
-            <MediaToolbarButton nodeType={KEYS.video} />
-            <MediaToolbarButton nodeType={KEYS.audio} />
-            <MediaToolbarButton nodeType={KEYS.file} />
-          </ToolbarGroup>
+          {/*<ToolbarGroup>*/}
+          {/*  <AlignToolbarButton />*/}
+          {/*  <NumberedListToolbarButton />*/}
+          {/*  <BulletedListToolbarButton />*/}
+          {/*  <TodoListToolbarButton />*/}
+          {/*  <ToggleToolbarButton />*/}
+          {/*</ToolbarGroup>*/}
 
-          {/* 行高 缩进 外缩 */}
-          <ToolbarGroup>
-            <LineHeightToolbarButton />
-            <IndentToolbarButton />
-            <OutdentToolbarButton />
-          </ToolbarGroup>
+          {/*<ToolbarGroup>*/}
+          {/*  <LinkToolbarButton />*/}
+          {/*  <TableToolbarButton />*/}
+          {/*  <EmojiToolbarButton />*/}
+          {/*</ToolbarGroup>*/}
 
+          {/*<ToolbarGroup>*/}
+          {/*  <MediaToolbarButton nodeType={KEYS.img} />*/}
+          {/*  <MediaToolbarButton nodeType={KEYS.video} />*/}
+          {/*  <MediaToolbarButton nodeType={KEYS.audio} />*/}
+          {/*  <MediaToolbarButton nodeType={KEYS.file} />*/}
+          {/*</ToolbarGroup>*/}
+
+          {/*<ToolbarGroup>*/}
+          {/*  <LineHeightToolbarButton />*/}
+          {/*  <OutdentToolbarButton />*/}
+          {/*  <IndentToolbarButton />*/}
+          {/*</ToolbarGroup>*/}
           {/* 更多 */}
-          <ToolbarGroup>
-            <MoreToolbarButton />
-          </ToolbarGroup>
+          {/*<ToolbarGroup>*/}
+          {/*  <MoreToolbarButton />*/}
+          {/*</ToolbarGroup>*/}
         </>
       )}
 
       <div className="grow" />
 
       <ToolbarGroup>
-        {/* 高亮 */}
         <MarkToolbarButton nodeType={KEYS.highlight} tooltip="Highlight">
           <HighlighterIcon />
         </MarkToolbarButton>
-				 {/* 评论组件 */}
-         <CommentToolbarButton />
+        <CommentToolbarButton />
       </ToolbarGroup>
 
       <ToolbarGroup>
-        {/* 模式 */}
         <ModeToolbarButton />
       </ToolbarGroup>
     </div>
-  )
+  );
+
 }

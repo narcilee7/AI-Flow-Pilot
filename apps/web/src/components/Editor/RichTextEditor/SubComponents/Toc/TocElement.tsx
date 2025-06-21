@@ -10,6 +10,9 @@ import { PlateElement } from 'platejs/react'
 
 import { Button } from '@/components/Button'
 
+/**
+ * 目录列表标题样式variants
+ */
 const headingItemVariants = cva(
   'block h-auto w-full cursor-pointer truncate rounded-none px-0.5 py-1.5 text-left font-medium text-muted-foreground underline decoration-[0.5px] underline-offset-4 hover:bg-accent hover:text-muted-foreground',
   {
@@ -24,8 +27,8 @@ const headingItemVariants = cva(
 );
 /**
  * 目录元素
- * @param props 
- * @returns 
+ * @param props
+ * @returns
  */
 export function TocElement(props: PlateElementProps) {
   const state = useTocElementState()

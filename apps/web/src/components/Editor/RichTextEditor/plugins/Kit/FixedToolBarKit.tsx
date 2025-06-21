@@ -2,7 +2,7 @@
 
 import { createPlatePlugin } from "platejs/react"
 import { FixedToolBar } from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar"
-import { FixedToolBarButtons } from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/FixedToolBarButtons"
+import { FixedToolbarButtons } from "@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/FixedToolBarButtons"
 
 export const FixedToolBarKit = [
   createPlatePlugin({
@@ -10,7 +10,7 @@ export const FixedToolBarKit = [
     render: {
       beforeEditable: () => (
         <FixedToolBar>
-          <FixedToolBarButtons />
+          <FixedToolbarButtons />
         </FixedToolBar>
       ),
     },
