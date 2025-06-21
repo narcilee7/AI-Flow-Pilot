@@ -44,7 +44,7 @@ import BasicMarksKit from '../../plugins/Kit/BasicMarksKit';
 import {
   type TDiscussion,
   discussionPlugin,
-} from '@/components/editor/plugins/discussion-kit';
+} from '@/components/Editor/RichTextEditor/plugins/Kit/DiscussionKit';
 import Editor from '../../Editor';
 import { EditorContainer } from '../../EditorContaner';
 

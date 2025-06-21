@@ -21,8 +21,17 @@ import { ListKit } from "./plugins/Kit/ListKit";
 import { AlignKit } from "./plugins/Kit/AlignKit";
 import { LineHeightKit } from "./plugins/Kit/LineHeightKit";
 import { DiscussionKit } from "./plugins/Kit/DiscussionKit";
-import { CommentKit } from "./plugins/Kit/CommentKit";
+import { CommentKit } from "./plugins/Kit/Commentkit";
 import { SuggestionKit } from "./plugins/Kit/SuggestionKit";
+import { SlashKit } from "./plugins/Kit/SlashKit";
+import { AutoformatKit } from "./plugins/Kit/AutoFormatKit";
+import { CursorOverlayKit } from "./plugins/Kit/CursorOverlayKit";
+import { BlockMenuKit } from "./plugins/Kit/BlockMenuKit";
+import { DndKit } from "./plugins/Kit/DndKit";
+import { EmojiKit } from "./plugins/Kit/EmojiKit";
+import { ExitBreakKit } from "./plugins/Kit/ExitBreakKit";
+import { TrailingBlockPlugin, Value } from "platejs";
+import { TPlateEditor } from "platejs/react";
 
 const EditorKit = [
   // AI
@@ -32,7 +41,7 @@ const EditorKit = [
   ...BasicBlockKit,
   // 代码块套件
   ...CodeBlockKit,
-  // 表格套件 TODO: 待实现
+  // 表格套件
   ...TableKit,
   // Toggle套件
   ...ToggleKit,
@@ -62,6 +71,14 @@ const EditorKit = [
   ...SuggestionKit,
 
   /** Editing **/
+  ...SlashKit,
+  ...AutoformatKit,
+  ...CursorOverlayKit,
+  ...BlockMenuKit,
+  ...DndKit,
+  ...EmojiKit,
+  ...ExitBreakKit,
+  TrailingBlockPlugin,
 
 	/** Parsers **/
 	// Docx解析
@@ -73,9 +90,11 @@ const EditorKit = [
   // 块占位符
   ...BlockPlaceHolderKit,
   // 固定工具栏
-  // ...FixedToolBarKit,
+  ...FixedToolBarKit,
 	// 浮动工具栏
-	// ...FloatingToolbarKit,
+	...FloatingToolbarKit,
 ]
+
+export type RichTextEditorKitType = TPlateEditor<Value, (typeof EditorKit)[number]>;
 
 export default EditorKit
