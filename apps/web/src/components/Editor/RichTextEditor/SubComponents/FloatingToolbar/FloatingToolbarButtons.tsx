@@ -1,63 +1,83 @@
-'use client'
+'use client';
 
+import * as React from 'react';
 
-import { useEditorReadOnly } from 'platejs/react';
-import { ToolbarGroup } from '@/components/ToolBar';
-import { AIToolbarButton } from '@/components/Editor/RichTextEditor/SubComponents/AI/AIToolbarButton';
-import { BoldIcon, Code2Icon, ItalicIcon, StrikethroughIcon, UnderlineIcon, WandSparklesIcon } from 'lucide-react';
 import {
-	TurnInfoToolbarButton
-} from '@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/TurnInfoToolbarButton';
-import { MarkToolbarButton } from '@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/MarkToolbarButton';
+  BoldIcon,
+  Code2Icon,
+  ItalicIcon,
+  StrikethroughIcon,
+  UnderlineIcon,
+  WandSparklesIcon,
+} from 'lucide-react';
 import { KEYS } from 'platejs';
-import { LinkToolbarButton } from '@/components/Editor/RichTextEditor/SubComponents/FixedToolBar/LinkToolbarButton';
-import {
-	InlineEquationToolbarButton
-} from '@/components/Editor/RichTextEditor/SubComponents/FloatingToolbar/InlineEuqationToolbarButton';
+import { useEditorReadOnly } from 'platejs/react';
+import { AIToolbarButton } from '../AI/AIToolbarButton';
+import { CommentToolbarButton } from '../FixedToolBar/CommentToolbarButton';
+import { InlineEquationToolbarButton } from './InlineEuqationToolbarButton';
+import { LinkToolbarButton } from '../FixedToolBar/LinkToolbarButton';
+import { MarkToolbarButton } from '../FixedToolBar/MarkToolbarButton';
+import { MoreToolbarButton } from '../FixedToolBar/MoreToolbarButton';
+import { SuggestionToolbarButton } from './SuggestionToolbarButton';
+import { ToolbarGroup } from '@/components/ToolBar';
+import { TurnIntoToolbarButton } from './TurnIntoToolbarButton';
 
 export function FloatingToolbarButtons() {
-	const readOnly = useEditorReadOnly()
+  const readOnly = useEditorReadOnly();
 
-	return (
-		<>
-			{!readOnly && (
-				<>
-					<ToolbarGroup>
-						<AIToolbarButton tooltip='AI Commands'>
-							<WandSparklesIcon />
-							询问AI
-						</AIToolbarButton>
-					</ToolbarGroup>
+  return (
+    <>
+      {!readOnly && (
+        <>
+          <ToolbarGroup>
+            <AIToolbarButton tooltip="AI commands">
+              <WandSparklesIcon />
+              Ask AI
+            </AIToolbarButton>
+          </ToolbarGroup>
 
-					<ToolbarGroup>
-						<TurnInfoToolbarButton />
-						{/* 加粗 */}
-						<MarkToolbarButton nodeType={KEYS.bold} tooltip="Bold (⌘+B)">
-							<BoldIcon />
-						</MarkToolbarButton>
-						{/* 斜体 */}
-						<MarkToolbarButton nodeType={KEYS.italic} tooltip="Italic (⌘+I)">
-							<ItalicIcon />
-						</MarkToolbarButton>
-						{/* 下划线 */}
-						<MarkToolbarButton nodeType={KEYS.underline} tooltip="Underline (⌘+U)">
-							<UnderlineIcon />
-						</MarkToolbarButton>
-						{/* 删除线*/}
-						<MarkToolbarButton nodeType={KEYS.strikethrough} tooltip="Strikethrough (⌘+⇧+M)">
-							<StrikethroughIcon />
-						</MarkToolbarButton>
-						{/*	代码块 */}
-						<MarkToolbarButton nodeType={KEYS.code} tooltip="Code (⌘+E)">
-							<Code2Icon />
-						</MarkToolbarButton>
+          <ToolbarGroup>
+            <TurnIntoToolbarButton />
 
-						<InlineEquationToolbarButton />
+            <MarkToolbarButton nodeType={KEYS.bold} tooltip="Bold (⌘+B)">
+              <BoldIcon />
+            </MarkToolbarButton>
 
-						<LinkToolbarButton />
-					</ToolbarGroup>
-				</>
-			)}
-		</>
-	)
+            <MarkToolbarButton nodeType={KEYS.italic} tooltip="Italic (⌘+I)">
+              <ItalicIcon />
+            </MarkToolbarButton>
+
+            <MarkToolbarButton
+              nodeType={KEYS.underline}
+              tooltip="Underline (⌘+U)"
+            >
+              <UnderlineIcon />
+            </MarkToolbarButton>
+
+            <MarkToolbarButton
+              nodeType={KEYS.strikethrough}
+              tooltip="Strikethrough (⌘+⇧+M)"
+            >
+              <StrikethroughIcon />
+            </MarkToolbarButton>
+
+            <MarkToolbarButton nodeType={KEYS.code} tooltip="Code (⌘+E)">
+              <Code2Icon />
+            </MarkToolbarButton>
+
+            <InlineEquationToolbarButton />
+
+            <LinkToolbarButton />
+          </ToolbarGroup>
+        </>
+      )}
+
+      <ToolbarGroup>
+        <CommentToolbarButton />
+        <SuggestionToolbarButton />
+
+        {!readOnly && <MoreToolbarButton />}
+      </ToolbarGroup>
+    </>
+  );
 }

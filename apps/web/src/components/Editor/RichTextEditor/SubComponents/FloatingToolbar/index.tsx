@@ -4,31 +4,35 @@ import * as React from 'react';
 
 import {
   type FloatingToolbarState,
-	flip,
-	offset,
-	useFloatingToolbar,
-	useFloatingToolbarState,
+  flip,
+  offset,
+  useFloatingToolbar,
+  useFloatingToolbarState,
 } from '@platejs/floating';
 import { useComposedRef } from '@udecode/cn';
 import { KEYS } from 'platejs';
-import { useEditorId, useEventEditorValue, usePluginOption } from 'platejs/react';
-import { cn } from '@/lib/utils';
-import { Toolbar } from '@/components/ToolBar';
+import {
+  useEditorId,
+  useEventEditorValue,
+  usePluginOption,
+} from 'platejs/react';
 
-interface FloatingToolbarProps extends React.ComponentProps<typeof Toolbar> {
-	state?: FloatingToolbarState;
-}
+import { cn } from '@/lib/utils';
+
+import { Toolbar } from '@/components/ToolBar';
 
 export function FloatingToolbar({
   children,
   className,
   state,
   ...props
-}: Readonly<FloatingToolbarProps>) {
+}: React.ComponentProps<typeof Toolbar> & {
+  state?: FloatingToolbarState;
+}) {
   const editorId = useEditorId();
-  const focusedEditorId = useEventEditorValue("focus");
-  const isFloatingLinkOpen = !!usePluginOption({ key: KEYS.link }, "mode");
-  const isAIChatOpen = !!usePluginOption({ key: KEYS.aiChat }, "open");
+  const focusedEditorId = useEventEditorValue('focus');
+  const isFloatingLinkOpen = !!usePluginOption({ key: KEYS.link }, 'mode');
+  const isAIChatOpen = usePluginOption({ key: KEYS.aiChat }, 'open');
 
   const floatingToolbarState = useFloatingToolbarState({
     editorId,
@@ -40,15 +44,15 @@ export function FloatingToolbar({
         offset(12),
         flip({
           fallbackPlacements: [
-            "top-start",
-            "top-end",
-            "bottom-start",
-            "bottom-end",
+            'top-start',
+            'top-end',
+            'bottom-start',
+            'bottom-end',
           ],
           padding: 12,
         }),
       ],
-      placement: "top",
+      placement: 'top',
       ...state?.floatingOptions,
     },
   });
@@ -60,7 +64,7 @@ export function FloatingToolbar({
     ref: floatingRef,
   } = useFloatingToolbar(floatingToolbarState);
 
-  const ref = useComposedRef<HTMLDivElement>(props.ref, floatingRef)
+  const ref = useComposedRef<HTMLDivElement>(props.ref, floatingRef);
 
   if (hidden) return null;
 
@@ -69,10 +73,11 @@ export function FloatingToolbar({
       <Toolbar
         {...props}
         {...rootProps}
+        ref={ref}
         className={cn(
-          "absolute z-50 scrollbar-hide overflow-x-hidden rounded-md border bg-popover p-1 whitespace-nowrap opacity-100 shadow-md print:hidden",
-          "max-w-[80vw]",
-          className,
+          'absolute z-50 scrollbar-hide overflow-x-auto rounded-md border bg-popover p-1 whitespace-nowrap opacity-100 shadow-md print:hidden',
+          'max-w-[80vw]',
+          className
         )}
       >
         {children}
