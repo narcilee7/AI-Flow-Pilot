@@ -45,8 +45,7 @@ import {
   type TDiscussion,
   discussionPlugin,
 } from '@/components/Editor/RichTextEditor/plugins/Kit/DiscussionKit';
-import Editor from '../../Editor';
-import EditorContainer from '../../EditorContainer';
+import { EditorContainer, Editor } from '../../EditorContainer';
 
 export interface TComment {
   id: string;

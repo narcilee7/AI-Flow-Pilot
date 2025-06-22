@@ -34,7 +34,7 @@ import { TrailingBlockPlugin, Value } from "platejs";
 import { TPlateEditor } from "platejs/react";
 
 const EditorKit = [
-  // AI
+  /** AI **/
 
   /** Elements **/
   // 基础块套件

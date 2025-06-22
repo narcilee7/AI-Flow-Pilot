@@ -18,7 +18,6 @@ import {
 } from '@/components/DropdownMenu';
 import { BaseEditorKit } from '../../plugins/Kit/BaseEditorKit';
 import { EditorStatic } from '../EditorStatic';
-// import { ToolbarButton } from './toolbar';
 import { ToolbarButton } from '@/components/ToolBar';
 
 const siteUrl = 'https://platejs.org';
@@ -157,16 +156,16 @@ export function ExportToolbarButton(props: DropdownMenuProps) {
       <DropdownMenuContent align="start">
         <DropdownMenuGroup>
           <DropdownMenuItem onSelect={exportToHtml}>
-            Export as HTML
+            导入为HTML
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={exportToPdf}>
-            Export as PDF
+            导入为PDF
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={exportToImage}>
-            Export as Image
+            导出为PNG
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={exportToMarkdown}>
-            Export as Markdown
+            导出为Markdown
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
